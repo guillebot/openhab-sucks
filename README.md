@@ -8,7 +8,9 @@ https://github.com/wpietri
 
 # Installation
 
-1. Follow the instructions at https://github.com/wpietri/sucks, basically pip install sucks
+1. Follow the instructions at https://github.com/wpietri/sucks, basically:
+
+`pip install sucks`
 
 2. Run sucks login, in order to generate the necesary sucks.conf config file
 
