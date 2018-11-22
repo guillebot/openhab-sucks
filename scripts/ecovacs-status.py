@@ -20,7 +20,7 @@ vacbot.run(GetBatteryState())
 #print(vacbot.run(GetBatteryState()))
 print(GetBatteryState())
 print(GetChargeState())
-print(vacbot.GetBatteryState)
+print(vacbot.batterystate)
 
 
 
