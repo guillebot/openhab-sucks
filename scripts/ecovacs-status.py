@@ -16,8 +16,8 @@ print("Connected")
 #time.sleep(9)      # clean for 15 minutes
 #vacbot.run(Charge()) # return to the charger
 
-#vacbot.run(GetBatteryState())
-print(vacbot.run(GetBatteryState()))
+vacbot.run(GetBatteryState())
+#print(vacbot.run(GetBatteryState()))
 print(GetBatteryState())
 print(GetChargeState())
 GetBatteryState()
