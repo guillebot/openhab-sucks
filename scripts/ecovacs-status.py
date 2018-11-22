@@ -18,10 +18,7 @@ print("Connected")
 
 vacbot.run(GetBatteryState())
 #print(vacbot.run(GetBatteryState()))
-print(GetBatteryState())
-print(GetChargeState())
-print(vacbot.batterystate)
-
+print(vacbot.battery_status)
 
 
 #battery = vacbot.GetChargeState
