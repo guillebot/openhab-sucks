@@ -16,6 +16,8 @@ vacbot.connect_and_wait_until_ready()
 
 #vacbot.run(GetBatteryState())
 print(vacbot.run(GetBatteryState()))
+print(GetBatteryState())
+print(GetChargeState())
 
 #battery = vacbot.GetChargeState
 
