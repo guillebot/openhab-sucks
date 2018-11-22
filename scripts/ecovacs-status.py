@@ -10,6 +10,10 @@ my_vac = api.devices()[0]
 vacbot = VacBot(api.uid, api.REALM, api.resource, api.user_access_token, my_vac, config['continent'])
 vacbot.connect_and_wait_until_ready()
 
-vacbot.run(Clean())  # start cleaning
-time.sleep(9)      # clean for 15 minutes
-vacbot.run(Charge()) # return to the charger
+#vacbot.run(Clean())  # start cleaning
+#time.sleep(9)      # clean for 15 minutes
+#vacbot.run(Charge()) # return to the charger
+
+battery = vacbot.GetChargeState
+
+print(battery)

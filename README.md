@@ -14,8 +14,7 @@ https://github.com/wpietri
 
 3. TEST that you can run sucks correctly
 
-4. Clone this script
-
+4. Clone this repo
 
 profit
 
