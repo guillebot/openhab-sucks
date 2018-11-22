@@ -2,7 +2,7 @@ import sucks
 import configparser
 from sucks.cli import *
 
-config = read_config()nfig_string)
+config = read_config()
 
 api = EcoVacsAPI(config['device_id'], config['email'], config['password_hash'],
                          config['country'], config['continent'])
