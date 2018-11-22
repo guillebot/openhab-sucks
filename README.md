@@ -16,6 +16,12 @@ https://github.com/wpietri
 
 4. Clone this script
 
+git clone https://github.com/guillebot/openhab-sucks/
+
+NOTE: this is in active depelopment. Have ready git pull in order to update frecuently
+
+5. 
+
 
 profit
 
