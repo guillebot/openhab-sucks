@@ -14,8 +14,7 @@ my_vac = api.devices()[0]
 vacbot = VacBot(api.uid, api.REALM, api.resource, api.user_access_token, my_vac, config['continent'], monitor=True)
 vacbot.connect_and_wait_until_ready()
 
-vacbot.refresh_components
-time.sleep(5)
+#vacbot.refresh_components
 
 # Query values for the first time
 battery_status=int(vacbot.battery_status*100)
@@ -23,7 +22,7 @@ charge_status=vacbot.charge_status
 clean_status=vacbot.clean_status
 vacuum_status=vacbot.vacuum_status
 fan_speed=vacbot.fan_speed
-components=vacbot.components
+#components=vacbot.components
 
 # Publish values for the first time
 publish.single("ecovacs/1/battery_status", battery_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
@@ -31,14 +30,14 @@ publish.single("ecovacs/1/charge_status", charge_status, hostname="192.168.1.2",
 publish.single("ecovacs/1/clean_status", clean_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
 publish.single("ecovacs/1/vacuum_status", vacuum_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
 publish.single("ecovacs/1/fan_speed", fan_speed, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
-publish.single("ecovacs/1/components", components, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
+#publish.single("ecovacs/1/components", components, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
 # Debug info to console
 print("Start battery status:", battery_status)
 print("Start charge status:", charge_status)
 print("Start clean status:", clean_status)
 print("Start vacuum status:", vacuum_status)
 print("Start fan speed:", fan_speed)
-print("Start components:", components)
+#print("Start components:", components)
 
 # Now loop forever and only send values when they change.
 # I'm sure its a better version with callback functions when the library detects the changes
