@@ -69,5 +69,6 @@ while True:
    #     print("New components:", components)
     time.sleep(5) # I don't know if each call to the vacbot object is putting strain on the network+xmpp or it is local
 
+
 vacbot.disconnect(wait=True) # Unnecesary. I never exit this.
 

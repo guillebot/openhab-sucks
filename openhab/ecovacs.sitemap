@@ -3,4 +3,6 @@ Frame label=Ecovacs {
                                         valuecolor=[Ups_Battery_Charge >98="green",>50="orange",<=50="red"]
     Text item=ecovacs_1_charge_status icon="poweroutlet_au"
     Text item=ecovacs_1_clean_status
+    Text item=ecovacs_1_vacuum_status
+    Text item=ecovacs_1_fan_speed
 }
