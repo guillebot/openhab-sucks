@@ -30,14 +30,14 @@ publish.single("ecovacs/1/charge_status", charge_status, hostname="192.168.1.2",
 publish.single("ecovacs/1/clean_status", clean_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
 publish.single("ecovacs/1/vacuum_status", vacuum_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
 publish.single("ecovacs/1/fan_speed", fan_speed, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
-#publish.single("ecovacs/1/components", components, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
+publish.single("ecovacs/1/components", components, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
 # Debug info to console
 print("Start battery status:", battery_status)
 print("Start charge status:", charge_status)
 print("Start clean status:", clean_status)
 print("Start vacuum status:", vacuum_status)
 print("Start fan speed:", fan_speed)
-#print("Start components:", components)
+print("Start components:", components)
 
 # Now loop forever and only send values when they change.
 # I'm sure its a better version with callback functions when the library detects the changes
