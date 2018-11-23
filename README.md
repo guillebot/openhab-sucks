@@ -12,7 +12,7 @@ At the core, the great [sucks library](https://github.com/wpietri/sucks) by [@wp
 
 2. Run ```sucks login```, in order to generate the necesary ```sucks.conf``` config file
 
-3. PLEASE TEST that you can run sucks correctly. Play with ```sucks clean 1```, ```sucks stop```
+3. **PLEASE TEST** that you can run sucks correctly. Play with ```sucks clean 1```, ```sucks stop```
 
 Only continue if you are sure that sucks it's running fine. If not please go to the great sucks community and ask for help.
 
