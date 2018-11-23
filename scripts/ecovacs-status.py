@@ -12,10 +12,10 @@ my_vac = api.devices()[0]
 vacbot = VacBot(api.uid, api.REALM, api.resource, api.user_access_token, my_vac, config['continent'], monitor=True)
 vacbot.connect_and_wait_until_ready()
 
-print("Connected")
-
-print(vacbot.battery_status)
-print(vacbot.charge_status)
-print(vacbot.clean_status)
+while True:
+    print(vacbot.battery_status)
+    print(vacbot.charge_status)
+    print(vacbot.clean_status)
+    time.sleep(10)
 
 vacbot.disconnect(wait=True)
