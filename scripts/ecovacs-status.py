@@ -30,12 +30,15 @@ while True:
     if battery_status != int(vacbot.battery_status*100):
         battery_status=int(vacbot.battery_status*100)
         publish.single("ecovacs/1/battery_status", battery_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
+        print("New battery status:", battery_status,'\n')
     if charge_status != vacbot.charge_status:    
         charge_status=vacbot.charge_status
         publish.single("ecovacs/1/charge_status", charge_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
+        print("New charge status:", charge_status,'\n')
     if clean_status != vacbot.clean_status:
         clean_status = vacbot.clean_status   
         publish.single("ecovacs/1/clean_status", clean_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
+        print("New clean status:", clean_status,'\n')
     time.sleep(5) # I don't know if each call to the vacbot object is putting strain on the network+xmpp or it is local
 
 vacbot.disconnect(wait=True) # Unnecesary. I never exit this.
