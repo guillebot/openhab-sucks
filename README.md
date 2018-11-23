@@ -12,11 +12,11 @@ https://github.com/wpietri
 
 `pip install sucks`
 
-2. Run sucks login, in order to generate the necesary sucks.conf config file
+2. Run ```sucks login```, in order to generate the necesary ```sucks.conf``` config file
 
-3. TEST that you can run sucks correctly
+3. TEST that you can run sucks correctly. Play with ```sucks clean 1```, ```sucks stop```
 
-4. Clone this repo
+4. Only if (3) it's ok: Clone this repo
 
 profit
 
