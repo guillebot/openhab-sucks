@@ -1,6 +1,6 @@
 # openhab-sucks
 
-My attemp at monitor and control Ecovacs Deebot vacuum cleaners from OpenHAB
+My attempt at monitor and control Ecovacs Deebot vacuum cleaners from OpenHAB
 
 At the core, the great sucks library by @wpietri
 
