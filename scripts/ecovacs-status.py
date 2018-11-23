@@ -22,7 +22,7 @@ charge_status=vacbot.charge_status
 clean_status=vacbot.clean_status
 vacuum_status=vacbot.vacuum_status
 fan_speed=vacbot.fan_speed
-components=vacbot.components.values
+components=vacbot.components.__str__
 
 # Publish values for the first time
 publish.single("ecovacs/1/battery_status", battery_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
