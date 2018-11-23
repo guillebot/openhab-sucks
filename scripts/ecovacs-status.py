@@ -22,6 +22,9 @@ clean_status=vacbot.clean_status
 publish.single("ecovacs/1/battery_status", battery_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
 publish.single("ecovacs/1/charge_status", charge_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
 publish.single("ecovacs/1/clean_status", clean_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
+print("Start battery status:", battery_status,'\n')
+print("Start charge status:", charge_status,'\n')
+print("Start clean status:", clean_status,'\n')
 
 # Now loop forever and only send values when they change.
 # I'm sure its a better version with callback functions when the library detects the changes
