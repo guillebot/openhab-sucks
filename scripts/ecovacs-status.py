@@ -23,7 +23,7 @@ charge_status=vacbot.charge_status
 clean_status=vacbot.clean_status
 vacuum_status=vacbot.vacuum_status
 fan_speed=vacbot.fan_speed
-components=json.dump(vacbot.components)
+components=json.dumps(vacbot.components)
 
 # Publish values for the first time
 publish.single("ecovacs/1/battery_status", battery_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
@@ -64,8 +64,8 @@ while True:
         fan_speed = vacbot.fan_speed   
         publish.single("ecovacs/1/fan_speed", clean_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
         print("New fan speed:", fan_speed)
-    if components != json.dump(vacbot.components):
-        components = json.dump(vacbot.components)   
+    if components != json.dumps(vacbot.components):
+        components = json.dumps(vacbot.components)   
         publish.single("ecovacs/1/components", components, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
         print("New components:", components)
     time.sleep(60) # I don't know if each call to the vacbot object is putting strain on the network+xmpp or it is local
