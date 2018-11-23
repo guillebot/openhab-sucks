@@ -14,7 +14,9 @@ https://github.com/wpietri
 
 2. Run ```sucks login```, in order to generate the necesary ```sucks.conf``` config file
 
-3. TEST that you can run sucks correctly. Play with ```sucks clean 1```, ```sucks stop```
+3. PLEASE TEST that you can run sucks correctly. Play with ```sucks clean 1```, ```sucks stop```
+
+Only continue if you are sure that sucks it's running fine. If not please go to the great sucks community and ask for help.
 
 4. Install dependencies
 
@@ -30,14 +32,15 @@ I'm using sucks library to connect to the Ecovacs system and monitor for status 
 
 At start and whenever it changes, I publish the values to my mqtt broker (Eclipse Mosquitto https://mosquitto.org/). I use MQTT for all my IoT/Sensors communications to OpenHAB and strongly recommend everybody to do so. It's standard, easy to deploy, easy to monitor and I can play with a lot of other domotic solutions in case I ever get tired of OpenHAB (hope not, it's the best)
 
-You can use the provided ecovacs.items and ecovac.sitemap to show the status.
+You can use the provided [https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.items](ecovacs.items) and [https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.sitemap](ecovac.sitemap) to show the status.
 
-It's very basic by now and it doesn't provides control.
+It's very basic by now and it doesn't provides control. (I'm controlling the robot by system calling sucks, see To Do bellow)
 
 # To do - Next steps
 
 - Add more info. Consumables, etc.
 - Add control. Put the openhab-sucks.py suscribed to mqtt and receive commands from openhab.
 - (mine) Apply some logic with presence and automate ecovacs run daily.
+
 
 
