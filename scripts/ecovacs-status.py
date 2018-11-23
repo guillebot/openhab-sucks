@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sucks
 import configparser
 from sucks.cli import *
