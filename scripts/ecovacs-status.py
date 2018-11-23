@@ -14,13 +14,15 @@ my_vac = api.devices()[0]
 vacbot = VacBot(api.uid, api.REALM, api.resource, api.user_access_token, my_vac, config['continent'], monitor=True)
 vacbot.connect_and_wait_until_ready()
 
+vacbot.refresh_components
+
 # Query values for the first time
 battery_status=int(vacbot.battery_status*100)
 charge_status=vacbot.charge_status
 clean_status=vacbot.clean_status
 vacuum_status=vacbot.vacuum_status
 fan_speed=vacbot.fan_speed
-#components=vacbot.components
+components=vacbot.components
 
 # Publish values for the first time
 publish.single("ecovacs/1/battery_status", battery_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
