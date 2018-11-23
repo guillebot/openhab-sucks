@@ -14,7 +14,7 @@ my_vac = api.devices()[0]
 vacbot = VacBot(api.uid, api.REALM, api.resource, api.user_access_token, my_vac, config['continent'], monitor=True)
 vacbot.connect_and_wait_until_ready()
 
-vacbot.refresh_components
+#vacbot.refresh_components
 
 # Query values for the first time
 battery_status=int(vacbot.battery_status*100)
