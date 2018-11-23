@@ -2,9 +2,7 @@
 
 My attempt at monitor and control Ecovacs Deebot vacuum cleaners from OpenHAB
 
-At the core, the great sucks library by @wpietri
-
-https://github.com/wpietri
+At the core, the great [sucks library](https://github.com/wpietri/sucks) by [@wpietri](https://github.com/wpietri)
 
 # Installation
 
