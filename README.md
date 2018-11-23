@@ -20,13 +20,15 @@ https://github.com/wpietri
 
 ```pip install paho-mqtt```
 
-5. Only if (3) it's ok: Clone this repo
+5. Only if (3) it's ok: Clone this repo and run openhab-sucks.py
+
+It should remain running, for that, I recommend: http://supervisord.org/
 
 # Concept
 
-I'm using sucks library to connect to the Ecovacs system and monitor for status and status changes
+I'm using sucks library to connect to the Ecovacs system and monitor for status and status changes.
 
-At start and whenever it changes, I publish the values to my mqtt broker. I use MQTT for all my IoT/Sensors communications to OpenHAB and strongly recommend everybody to do so. It's standard, easy to deploy, easy to monitor and I can play with a lot of other domotic solutions in case I ever get tired of OpenHAB (hope not, it's the best)
+At start and whenever it changes, I publish the values to my mqtt broker (Eclipse Mosquitto https://mosquitto.org/). I use MQTT for all my IoT/Sensors communications to OpenHAB and strongly recommend everybody to do so. It's standard, easy to deploy, easy to monitor and I can play with a lot of other domotic solutions in case I ever get tired of OpenHAB (hope not, it's the best)
 
 You can use the provided ecovacs.items and ecovac.sitemap to show the status.
 
