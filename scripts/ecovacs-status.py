@@ -14,12 +14,6 @@ vacbot.connect_and_wait_until_ready()
 
 print("Connected")
 
-#vacbot.run(Clean())  # start cleaning
-#time.sleep(9)      # clean for 15 minutes
-#vacbot.run(Charge()) # return to the charger
-
-#vacbot.run(GetBatteryState())
-#print(vacbot.run(GetBatteryState()))
 print(vacbot.battery_status)
 print(vacbot.charge_status)
 print(vacbot.clean_status)
