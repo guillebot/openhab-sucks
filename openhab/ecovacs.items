@@ -4,3 +4,11 @@ String ecovacs_1_charge_status  "Charge Status [%s]"       {mqtt="<[mosquitto:ec
 String ecovacs_1_clean_status   "Clean Status [%s]"        {mqtt="<[mosquitto:ecovacs/1/clean_status:state:default]"}
 String ecovacs_1_vacuum_status  "Vacuum Status [%s]"       {mqtt="<[mosquitto:ecovacs/1/vacuum_status:state:default]"}
 String ecovacs_1_fan_speed      "Fan Speed [%s]"           {mqtt="<[mosquitto:ecovacs/1/fan_speed:state:default]"}
+Number ecovacs_1_main_brush                                {mqtt="<[mosquitto:ecovacs/1/components:state:JSONPATH($.main_brush)]"}
+Number ecovacs_1_side_brush                                {mqtt="<[mosquitto:ecovacs/1/components:state:JSONPATH($.side_brush)]"}
+Number ecovacs_1_filter                                    {mqtt="<[mosquitto:ecovacs/1/components:state:JSONPATH($.filter)]"}
+Number ecovacs_1_main_brush_percent "Main Brush [%.0f %%]"
+Number ecovacs_1_side_brush_percent "Side Brush [%.0f %%]"
+Number ecovacs_1_filter_percent     "Filter [%.0f %%]"
+
+New components: {'main_brush': 0.71, 'side_brush': 0.43, 'filter': 0.47}
