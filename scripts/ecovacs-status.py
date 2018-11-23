@@ -38,7 +38,7 @@ print("Start charge status:", charge_status)
 print("Start clean status:", clean_status)
 print("Start vacuum status:", vacuum_status)
 print("Start fan speed:", fan_speed)
-#print("Start components:", components)
+print("Start components:", components)
 
 # Now loop forever and only send values when they change.
 # I'm sure its a better version with callback functions when the library detects the changes
