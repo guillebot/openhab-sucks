@@ -1,4 +1,4 @@
 
-Number ecovacs_1_battery_status "Ecovacs Battery Status [%.1f °C]"  {mqtt="<[mosquitto:ecovacs/1/battery_status:state:default]"}
-String ecovacs_1_charge_status  "Ecovacs Charge Status"             {mqtt="<[mosquitto:ecovacs/1/charge_status:state:default]"}
-String ecovacs_1_clean_status   "Ecovacs Clean Status"              {mqtt="<[mosquitto:ecovacs/1/clean_status:state:default]"}
+Number ecovacs_1_battery_status "Battery Status [%.0f %%]"  {mqtt="<[mosquitto:ecovacs/1/battery_status:state:default]"}
+String ecovacs_1_charge_status  "Charge Status [%s]"        {mqtt="<[mosquitto:ecovacs/1/charge_status:state:default]"}
+String ecovacs_1_clean_status   "Clean Status [%s]"         {mqtt="<[mosquitto:ecovacs/1/clean_status:state:default]"}

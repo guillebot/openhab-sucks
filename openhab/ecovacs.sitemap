@@ -1,5 +1,6 @@
-Frame label="Ecovacs" {
-    Number item=ecovacs_1_battery_status
-    Text item=ecovacs_1_charge_status
+Frame label=Ecovacs {
+    Text item=ecovacs_1_battery_status icon="battery" 
+                                        valuecolor=[Ups_Battery_Charge >98="green",>50="orange",<=50="red"]
+    Text item=ecovacs_1_charge_status icon="poweroutlet_au"
     Text item=ecovacs_1_clean_status
 }
