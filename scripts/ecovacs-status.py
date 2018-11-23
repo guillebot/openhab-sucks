@@ -24,4 +24,4 @@ print(vacbot.battery_status)
 print(vacbot.charge_status)
 print(vacbot.clean_status)
 
-quit()
+vacbot.disconnect(wait=True)
