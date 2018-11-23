@@ -30,7 +30,7 @@ It should remain running, for that, I recommend: http://supervisord.org/
 
 I'm using sucks library to connect to the Ecovacs system and monitor for status and status changes.
 
-At start and whenever it changes, I publish the values to my mqtt broker [Eclipse Mosquitto](https://mosquitto.org/). I use MQTT for all my IoT/Sensors communications to [OpenHAB](https://www.openhab.org/) and strongly recommend everybody to do so. It's standard, easy to deploy, easy to monitor and I can play with a lot of other domotic solutions in case I ever get tired of OpenHAB (hope not, it's the best)
+At start and whenever it changes, I publish the values to my mqtt broker [Eclipse Mosquitto](https://mosquitto.org/). I use [MQTT](http://mqtt.org/) for all my IoT/Sensors communications to [OpenHAB](https://www.openhab.org/) and strongly recommend everybody to do so. It's standard, easy to deploy, easy to monitor and I can play with a lot of other domotic solutions in case I ever get tired of OpenHAB (hope not, it's the best)
 
 You can use the provided [ecovacs.items](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.items) and [ecovacs.sitemap](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.sitemap) to show the status.
 
