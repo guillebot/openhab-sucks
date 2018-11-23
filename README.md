@@ -22,13 +22,13 @@ Only continue if you are sure that sucks it's running fine. If not please go to 
 
 5. Only if (3) it's ok: Clone this repo and run openhab-sucks.py
 
-It should remain running, for that, I recommend: http://supervisord.org/
+It should remain running, for that, I recommend [Supervisor](http://supervisord.org/)
 
 # Concept
 
-I'm using sucks library to connect to the Ecovacs system and monitor for status and status changes.
+I'm using sucks library to connect to the Ecovacs system and monitor for status and activity.
 
-At start and whenever it changes, I publish the values to my mqtt broker [Eclipse Mosquitto](https://mosquitto.org/). I use [MQTT](http://mqtt.org/) for all my IoT/Sensors communications to [OpenHAB](https://www.openhab.org/) and strongly recommend everybody to do so. It's standard, easy to deploy, easy to monitor and I can play with a lot of other domotic solutions in case I ever get tired of OpenHAB (hope not, it's the best)
+At start and whenever it changes, I publish the values to my mqtt broker [Eclipse Mosquitto](https://mosquitto.org/). I use [MQTT](http://mqtt.org/) for all my IoT/Sensors communications to [OpenHAB](https://www.openhab.org/) and strongly recommend everybody to do so. MQTT it's standard, easy to deploy, easy to monitor from any device, and gives you the possibility of isolate devices from the home automation controller with a simple standard layer of abstraction. 
 
 You can use the provided [ecovacs.items](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.items) and [ecovacs.sitemap](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.sitemap) to show the status.
 
@@ -39,6 +39,3 @@ It's very basic by now and it doesn't provides control. (I'm controlling the rob
 - Add more info. Consumables, etc.
 - Add control. Put the openhab-sucks.py suscribed to mqtt and receive commands from openhab.
 - (mine) Apply some logic with presence and automate ecovacs run daily.
-
-
-
