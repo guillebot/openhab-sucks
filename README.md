@@ -16,7 +16,11 @@ https://github.com/wpietri
 
 3. TEST that you can run sucks correctly. Play with ```sucks clean 1```, ```sucks stop```
 
-4. Only if (3) it's ok: Clone this repo
+4. Install dependencies
+
+```pip install paho-mqtt```
+
+5. Only if (3) it's ok: Clone this repo
 
 profit
 

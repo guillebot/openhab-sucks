@@ -1,0 +1,5 @@
+Frame label="Ecovacs" {
+    Number item=ecovacs_1_battery_status
+    Text item=ecovacs_1_charge_status
+    Text item=ecovacs_1_clean_status
+}
