@@ -91,7 +91,7 @@ battery_report(int(vacbot.battery_status*100))
 # Subscribe to this ecovac topics, translate mqtt commands into sucks commands to robot
 subscribe_topic="ecovacs/"+did+"/command"
 print("Subscribe topic: "+subscribe_topic)
-mqttclient.Subscribe(subscribe_topic)
+mqttclient.subscribe(subscribe_topic)
 
 def on_message(client, userdata, message):
     print("message received " ,str(message.payload.decode("utf-8")))
