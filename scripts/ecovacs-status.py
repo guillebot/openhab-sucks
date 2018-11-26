@@ -102,8 +102,9 @@ def on_message(client, userdata, message):
     print("Comando a correr:",COMMANDS_MQTT_TO_SUCKS[comando])
     if comando == "clean":
         vacbot.run(Clean())
-    else if comando == "charge":
-        vacbot.run(Charge())
+    else:
+        if comando == "charge":
+            vacbot.run(Charge())
     else:
         print("Comando desconocido")
         
