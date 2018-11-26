@@ -6,12 +6,13 @@ import paho.mqtt.publish as publish
 import json
 
 # Reading the config file. In my system /root/.config/sucks.conf
-# this config file is created by running 'sucks login'. Refer to sucks documentation.
+# this config file is created by running 'sucks login'. Please refer to sucks documentation.
 config = read_config()
 
 api = EcoVacsAPI(config['device_id'], config['email'], config['password_hash'],
                          config['country'], config['continent'])
 my_vac = api.devices()[0]
+# Device ID for a future multi device version
 did=str(my_vac['did'])
 print("Device ID: "+did)
 vacbot = VacBot(api.uid, api.REALM, api.resource, api.user_access_token, my_vac, config['continent'], monitor=True)
@@ -42,8 +43,8 @@ def lifespan_report(lifespan):
 
 # Callback function for error events
 # This also needs some work in order to understand error object and send the correct mqtt message
-def error_report(error):
-    error_str=str(error)
+def error_report(mierror):
+    error_str=str(mierror)
     print("error_event callback")
     mqttpublish(did,"error",error_str)
     print(error_str)
@@ -52,9 +53,11 @@ def error_report(error):
 def vacuum_report():
     print("vacuum_report")
     mqttpublish(did,"vacuum",vacbot.vacuum_status)
-    print(vacbot.vacuum_status)
+    mqttpublish(did,"fan",vacbot.fan_speed)
+    print("Vacuum status:"+vacbot.vacuum_status)
+    print("Fan Speed:"+vacbot.fan_speed)
 
-# Publish to MQTT. Need to put harcoded values into config file or at least at the top of the file.
+# Publish to MQTT. Need to move harcoded values to config file or at least at the top of the file.
 def mqttpublish(did,subtopic,message):
     topic="ecovacs/"+did+"/"+subtopic
     publish.single(topic, message, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
@@ -73,9 +76,7 @@ vacbot.refresh_components
 battery_report(vacbot.battery_status*100)
 #charge_status=vacbot.charge_status
 status_report(vacbot.clean_status)
-#vacuum_status=vacbot.vacuum_status
-#fan_speed=vacbot.fan_speed
 lifespan_report(vacbot.components)
 
-#vacbot.disconnect(wait=True) # Unnecesary. I never exit this.
+#vacbot.disconnect(wait=True) # Unused. This program is intended to run permanently.
 
