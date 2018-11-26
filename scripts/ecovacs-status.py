@@ -41,7 +41,7 @@ def lifespan_report(lifespan):
     tipo=lifespan['type']
     valor=lifespan['lifespan']
     mqttpublish(did,"components/"+tipo,valor)
-    print("Lifespan: "+json_dumps(lifespan))
+    print("Lifespan: "+json.dumps(lifespan))
     print("tipo: "+tipo)
     print("valor: "+valor)
 
