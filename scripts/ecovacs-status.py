@@ -18,29 +18,39 @@ vacbot.connect_and_wait_until_ready()
 # Callback function for battery events
 def battery_report(level):
     print("inside battery_event callback")
+    mqttpublish(my_vac,"battery",level)
     print(level)
-    vacuum_report() 
+    vacuum_report()
 
 # Callback function for status events
 def status_report(cosa):
     print("inside status_event callback")
+    mqttpublish(my_vac,"status",cosa)
     print(cosa)
     vacuum_report() 
     
 # Callback function for lifespan (components) events
+# A esta funcion le falta bastante laburo porque lifespan puede ser muchas cosas. Puedo mandarlo en un solo json y pasarle el problema
+# a openhab, o desarmar acá y reportar cada elemento en un topic distinto. Problema acá, facil en openhab.
 def lifespan_report(cosa):
     print("inside lifespan_event callback")
+    mqttpublish(my_vac,"lifespan",cosa)
     print(cosa)
 
 # Callback function for error events
 def error_report(cosa):
     print("inside error_event callback")
+    mqttpublish(my_vac,"error",level)
     print(cosa)
 
 # Library generated summary status. Smart merge of clean and battery status
 def vacuum_report():
     print("Inside vacuum_report")
     print(vacbot.vacuum_status)
+
+# Publish to MQTT. Need to put harcoded values into config file or at least at the top of the file.
+def mqttpublish(vac,topic,message):
+    publish.single("ecovacs/"+vac+"/"+topic, message, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
 
 # Subscribe to the all event emitters
 vacbot.batteryEvents.subscribe(battery_report)
@@ -51,7 +61,6 @@ vacbot.errorEvents.subscribe(error_report)
 # For the first run, try to get & report all statuses
 vacbot.request_all_statuses
 vacbot.refresh_components
-
 
 # When I first run, query all values and report them
 # # Query values for the first time
