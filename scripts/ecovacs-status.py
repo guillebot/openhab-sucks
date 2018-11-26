@@ -23,8 +23,9 @@ vacbot.connect_and_wait_until_ready()
 ## Callback functions. Triggered when sucks receives a status change from Ecovacs.
 # Callback function for battery events
 def battery_report(level):
-    mqttpublish(did,"battery",level)
-    print("Battery: "+level)
+    level_str=str(level)
+    mqttpublish(did,"battery",level_str)
+    print("Battery: "+level_str)
     vacuum_report()
 
 # Callback function for status events
