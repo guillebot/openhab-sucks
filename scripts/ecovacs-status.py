@@ -93,15 +93,6 @@ subscribe_topic="ecovacs/"+did+"/command"
 print("Subscribe topic: "+subscribe_topic)
 mqttclient.subscribe(subscribe_topic)
 
-COMMANDS_MQTT_TO_SUCKS = {
-    'clean': 'Clean()',
-    'charge': 'Charge()',
-    CLEAN_MODE_SPOT: 'spot',
-    CLEAN_MODE_SINGLE_ROOM: 'singleroom',
-    CLEAN_MODE_STOP: 'stop'
-}
-
-
 def on_message(client, userdata, message):
     comando=str(message.payload.decode("utf-8")).lstrip()
     print("message received=",comando)
@@ -109,8 +100,13 @@ def on_message(client, userdata, message):
     print("message qos=",message.qos)
     print("message retain flag=",message.retain)
     print("Comando a correr:",COMMANDS_MQTT_TO_SUCKS[comando])
-    vacbot.run(COMMANDS_MQTT_TO_SUCKS[comando])
-
+    if comando eq "clean":
+        vacbot.run(Clean())
+    else if comando eq "charge":
+        vacbot.run(Charge())
+    else:
+        print("Comando desconocido")
+        
 mqttclient.on_message=on_message
 mqttclient.loop_start()
 
