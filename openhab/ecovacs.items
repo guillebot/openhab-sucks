@@ -9,5 +9,7 @@ Number ecovacs_1_side_brush    "Side Brush [%.0f %%]"    {mqtt="<[mosquitto:ecov
 Number ecovacs_1_filter        "Filter [%.0f %%]"        {mqtt="<[mosquitto:ecovacs/{your device id}/components/filter:state:default]"}
 
 // Command
-Number ECOVACS_COMMAND "Aspiradora" { mqtt=">[mosquitto:ecovacs/E0000693817701104736/command:command:0:clean],
-                                    >[mosquitto:ecovacs/E0000693817701104736/command:command:1:charge]" }
+Number ECOVACS_COMMAND "Aspiradora" { mqtt=">[mosquitto:ecovacs/{your device id}/command:command:0:clean],
+                                            >[mosquitto:ecovacs/{your device id}/command:command:1:charge],
+                                            >[mosquitto:ecovacs/{your device id}/command:command:2:playsound]"
+                                     }
