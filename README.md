@@ -1,6 +1,6 @@
 # openhab-sucks
 
-My attempt at **monitor** and **control** Ecovacs Deebot vacuum cleaners from [OpenHAB](https://www.openhab.org/), via [MQTT](http://mqtt.org/).
+My attempt at **monitor** and **control** [Ecovacs Deebot](https://www.ecovacs.com/us) vacuum cleaners from [OpenHAB](https://www.openhab.org/), via [MQTT](http://mqtt.org/).
 
 At the core, the great [sucks library](https://github.com/wpietri/sucks) by [@wpietri](https://github.com/wpietri).
 
