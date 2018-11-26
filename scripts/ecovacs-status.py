@@ -108,11 +108,7 @@ def on_message(client, userdata, message):
     print("message topic=",message.topic)
     print("message qos=",message.qos)
     print("message retain flag=",message.retain)
-    try:
-        vacbot.run(COMMANDS_MQTT_TO_SUCKS[comando])
-    except:
-        print("ERROR!!!")
-
+    vacbot.run(COMMANDS_MQTT_TO_SUCKS[comando])
 
 mqttclient.on_message=on_message
 mqttclient.loop_start()
