@@ -40,8 +40,6 @@ def status_report(status):
     vacuum_report() 
     
 # Callback function for lifespan (components) events
-# A esta funcion le falta bastante laburo porque lifespan puede ser muchas cosas. Puedo mandarlo en un solo json y pasarle el problema
-# a openhab, o desarmar acá y reportar cada elemento en un topic distinto. Problema acá, facil en openhab.
 def lifespan_report(lifespan):
     tipo=lifespan['type']
     valor=str(100*lifespan['lifespan'])
