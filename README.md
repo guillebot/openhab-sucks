@@ -20,7 +20,7 @@ Only continue if you are sure that `sucks` it's running fine. If not please go t
 
 ```pip install paho-mqtt```
 
-5. Only if (3) it's ok: Clone this repo and run `ecovacs-mqtt-gateway.py`
+5. If and only if (3) it's ok: Clone this repo and run `ecovacs-mqtt-gateway.py`
 
 It should remain running in the background, for that, I recommend [Supervisor](http://supervisord.org/)
 
