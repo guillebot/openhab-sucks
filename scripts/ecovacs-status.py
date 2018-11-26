@@ -94,8 +94,8 @@ print("Subscribe topic: "+subscribe_topic)
 mqttclient.subscribe(subscribe_topic)
 
 def on_message(client, userdata, message):
-    print("message received=",str(message.payload.decode("utf-8")))
-    comando=str(message.payload.decode("utf-8"))
+    comando=lstrip(str(message.payload.decode("utf-8")))
+    print("message received=",comando)
     print("message topic=",message.topic)
     print("message qos=",message.qos)
     print("message retain flag=",message.retain)
