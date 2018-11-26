@@ -20,14 +20,14 @@ vacbot.connect_and_wait_until_ready()
 # Callback function for battery events
 def battery_report(level):
     print("inside battery_event callback")
-    mqttpublish(my_vac,"battery",level)
+    mqttpublish(did,"battery",level)
     print(level)
     vacuum_report()
 
 # Callback function for status events
 def status_report(status):
     print("inside status_event callback")
-    mqttpublish(my_vac,"status",status)
+    mqttpublish(did,"status",status)
     print(status)
     vacuum_report() 
     
@@ -37,13 +37,13 @@ def status_report(status):
 def lifespan_report(lifespan):
     lifespan_str=json.dumps(lifespan)
     print("inside lifespan_event callback")
-    mqttpublish(my_vac,"lifespan",lifespan_str)
+    mqttpublish(did,"lifespan",lifespan_str)
     print(lifespan_str)
 
 # Callback function for error events
 def error_report(error):
     print("inside error_event callback")
-    mqttpublish(my_vac,"error",error)
+    mqttpublish(did,"error",error)
     print(error)
 
 # Library generated summary status. Smart merge of clean and battery status
@@ -52,8 +52,8 @@ def vacuum_report():
     print(vacbot.vacuum_status)
 
 # Publish to MQTT. Need to put harcoded values into config file or at least at the top of the file.
-def mqttpublish(vac,subtopic,message):
-    topic="ecovacs/"+vac+"/"+subtopic
+def mqttpublish(did,subtopic,message):
+    topic="ecovacs/"+did+"/"+subtopic
     publish.single(topic, message, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
 
 # Subscribe to the all event emitters
