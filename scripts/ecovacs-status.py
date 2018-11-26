@@ -30,7 +30,7 @@ mqttclient.connect("192.168.1.2", port=8884, keepalive=60,bind_address="")
 ## Callback functions. Triggered when sucks receives a status change from Ecovacs.
 # Callback function for battery events
 def battery_report(level):
-    level_str=str(level)
+    level_str=str(level*100)
     mqttpublish(did,"battery_level",level_str)
     print("Battery level: "+level_str)
     vacuum_report()
@@ -85,7 +85,7 @@ vacbot.errorEvents.subscribe(error_report)
 # For the first run, try to get & report all statuses
 vacbot.request_all_statuses
 #vacbot.refresh_components
-battery_report(int(vacbot.battery_status*100))
+battery_report(vacbot.battery_status)
 
 ## MQTT ----> Ecovacs
 # Subscribe to this ecovac topics, translate mqtt commands into sucks commands to robot
