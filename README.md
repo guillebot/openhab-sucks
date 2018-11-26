@@ -24,6 +24,8 @@ Only continue if you are sure that `sucks` it's running fine. If not please go t
 
 It should remain running in the background, for that, I recommend [Supervisor](http://supervisord.org/)
 
+There is a provided supervisord [ecovacs.ini](https://github.com/guillebot/openhab-sucks/blob/master/supervisord/ecovacs.ini) example.
+
 # Concept
 
 I'm using sucks library to connect to the Ecovacs system and monitor for status and activity. At startup (kind of) and whenever a status change is detected, it publishes the values to the mqtt broker [Eclipse Mosquitto](https://mosquitto.org/). I also listen for mqtt control messages to send commands to the vacuum cleaners.
