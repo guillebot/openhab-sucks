@@ -89,3 +89,8 @@ I recommmend [MQTT.fx](https://mqttfx.jensd.de/) to monitor mqtt activity and do
 - Test for stability in general. Monitor memory usage.
 - (mine) Apply some logic with presence and automate ecovacs run daily.
 - Add control buttons on OpenHAB sitemap.
+
+# Contact
+
+Feel free to send push requests or drop me a line at: gschimmel at gmail dot com.
+
