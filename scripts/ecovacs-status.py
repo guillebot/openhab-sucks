@@ -95,12 +95,19 @@ mqttclient.subscribe(subscribe_topic)
 
 def on_message(client, userdata, message):
     print("message received " ,str(message.payload.decode("utf-8")))
+    comando=str(message.payload.decode("utf-8"))
     print("message topic=",message.topic)
     print("message qos=",message.qos)
     print("message retain flag=",message.retain)
+    try:
+        vacbot.run(comando)
+    except:
+        print("ERROR!!!")
+    
 
 mqttclient.on_message=on_message
 mqttclient.loop_start()
+
 
 #vacbot.disconnect(wait=True) # Unused. This program is intended to run permanently.
 
