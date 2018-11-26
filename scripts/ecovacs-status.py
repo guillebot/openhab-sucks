@@ -24,9 +24,9 @@ vacbot.connect_and_wait_until_ready()
 def battery_report(level):
     level_str=str(level)
     mqttpublish(did,"battery_level",level_str)
-    mqttpublish(did,"battery_status",vacbot.battery_status)
+    mqttpublish(did,"charge_status",vacbot.charge_status)
     print("Battery level: "+level_str)
-    print("Battery status: "+str(vacbot.battery_status))
+    print("Charge Status: "+vacbot.charge_status)
     vacuum_report()
 
 # Callback function for status events
@@ -56,7 +56,9 @@ def error_report(mierror):
 # Library generated summary status. Smart merge of clean and battery status
 def vacuum_report():
     mqttpublish(did,"vacuum",vacbot.vacuum_status)
+    mqttpublish(did,"clean_status",vacbot.clean_status)
     print("Vacuum status:"+vacbot.vacuum_status)
+    print("Clean status:"+vacbot.clean_status)
     if vacbot.fan_speed is not None:
         mqttpublish(did,"fan_speed",vacbot.fan_speed)
         print("Fan Speed: "+vacbot.fan_speed)
@@ -77,7 +79,6 @@ vacbot.request_all_statuses
 vacbot.refresh_components
 battery_report(int(vacbot.battery_status*100))
 #charge_status=vacbot.charge_status
-status_report(vacbot.clean_status)
 
 ## MQTT ----> Ecovacs
 # Subscribe to this ecovac topics, translate mqtt commands into sucks commands to robot
