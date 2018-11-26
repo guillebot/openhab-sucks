@@ -36,7 +36,7 @@ I use [MQTT](http://mqtt.org/) for all my IoT/Sensors communications to [OpenHAB
 
 You can use the provided [ecovacs.items](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.items) and [ecovacs.sitemap](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.sitemap) to show the status on your OpenHAB installation, and control the robot from OpenHAB, or just listen/command to the mqtt topics using your preferred software.
 
-It already provides some basic control, at the moment: `clean` and `charge`.
+It already provides some basic control, see bellow.
 
 # Features
 
@@ -72,7 +72,7 @@ I use and recommend OpenHAB.
 
 ## Control
 
-To control the vacuum cleaner via mqtt you have to publish `clean` or `charge` message to the following topic:
+To control the vacuum cleaner via mqtt you have to publish `auto`, `charge`, `stop` or `playsound` message to the following topic:
 
 `ecovacs/{did}/command`
 
@@ -84,7 +84,7 @@ I recommmend [MQTT.fx](https://mqttfx.jensd.de/) to monitor mqtt activity and do
 # To do - Next steps
 
 - Move some harcoded config (mqtt base topic, server, port) to some config file. 
-- Error codes management. At least the most commons, like stuck. Is there a warning when it runs out of batteries returning?
+- Error codes management. At least the most usual, like stuck robot. Is there a warning when it runs out of batteries returning?
 - Test for stability on the mqtt connection. Reconnect if necessary.
 - Test for stability in general. Monitor memory usage.
 - (mine) Apply some logic with presence and automate ecovacs run daily.
