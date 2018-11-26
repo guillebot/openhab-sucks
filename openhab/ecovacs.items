@@ -11,4 +11,3 @@ Number ecovacs_1_main_brush_percent "Main Brush [%.0f %%]"
 Number ecovacs_1_side_brush_percent "Side Brush [%.0f %%]"
 Number ecovacs_1_filter_percent     "Filter [%.0f %%]"
 
-New components: {'main_brush': 0.71, 'side_brush': 0.43, 'filter': 0.47}
