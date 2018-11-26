@@ -32,17 +32,13 @@ At start and whenever it changes, I publish the values to my mqtt broker [Eclips
 
 You can use the provided [ecovacs.items](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.items) and [ecovacs.sitemap](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.sitemap) to show the status.
 
-It already provides some basic control, by now `clean` and `charge`
+It already provides some basic control, at the moment: `clean` and `charge`.
 
 # Features
 
 ## Monitor
 
 This gateway, when running, will listen from sucks events and update the following mqtt topics:
-
-`{did}` its the Device Id. It's something like E0000626317798704736. You can get it running `ecovacs-mqtt-gateway.py` and it will show on the first line. You can also get it running `sucks --debug stop`, and it will be in a line like this:
-
-`sucks      DEBUG    got {'todo': 'result', 'result': 'ok', 'devices': [{**'did': 'E0000693437743404736'**, 'name': 'E00006938173430154535736`
 
 `ecovacs/{did}/battery_level`
 `ecovacs/{did}/battery_status`
@@ -53,9 +49,14 @@ This gateway, when running, will listen from sucks events and update the followi
 `ecovacs/{did}/components/side_brush`
 `ecovacs/{did}/components/filter`
 
+### Note:
+`{did}` its the Device Id. It's something like E0000626317798704736. You can get it running `ecovacs-mqtt-gateway.py` and it will show on the first line. You can also get it running `sucks --debug stop`, and it will be in a line like this:
+
+`sucks      DEBUG    got {'todo': 'result', 'result': 'ok', 'devices': [{**'did': 'E0000693437743404736'**, 'name': 'E00006938173430154535736`
+
 Example:
 
-`ecovacs/E0345693817701104736/battery_level
+`ecovacs/E0345693817701104736/battery_level`
 
 Keep in mind that this is simply a convention by me. This will be useful if in the future I decide to support more than one robot. If you understand this you can use anything you want in {did}, even something more human friendly like `/my_vacuum_cleaner/`
 
