@@ -10,6 +10,7 @@ import json
 # this config file is created by running 'sucks login'. Please refer to sucks documentation.
 config = read_config()
 
+# Sucks init
 api = EcoVacsAPI(config['device_id'], config['email'], config['password_hash'],
                          config['country'], config['continent'])
 my_vac = api.devices()[0]
@@ -22,7 +23,6 @@ vacbot.connect_and_wait_until_ready()
 # MQTT INIT
 mqttclient = mqtt.Client("sucks-gateway")
 mqttclient.connect("192.168.1.2", port=8884, keepalive=60,bind_address="")
-# once connected I can use the simpler publish method
 
 ## ECOVACS ---> MQTT
 ## Callback functions. Triggered when sucks receives a status change from Ecovacs.
@@ -49,13 +49,14 @@ def lifespan_report(lifespan):
     print("valor: "+valor)
 
 # Callback function for error events
-# This also needs some work in order to understand error object and send the correct mqtt message
+# THIS NEEDS A LOT OF WORK
 def error_report(mierror):
     error_str=str(mierror)
     mqttpublish(did,"error",error_str)
     print("Error: "+error_str)
 
 # Library generated summary status. Smart merge of clean and battery status
+# I think that when returning it should override "stop" values. Will follow on that.
 def vacuum_report():
     mqttpublish(did,"vacuum",vacbot.vacuum_status)
     mqttpublish(did,"clean_status",vacbot.clean_status)
@@ -67,7 +68,7 @@ def vacuum_report():
     mqttpublish(did,"charge_status",vacbot.charge_status)
     print("Charge Status: "+vacbot.charge_status)
 
-# Publish to MQTT. Need to move harcoded values to config file or at least at the top of the file.
+# Publish to MQTT. Root topic should be in a config file or at least defined at the top.
 def mqttpublish(did,subtopic,message):
     topic="ecovacs/"+did+"/"+subtopic
     mqttclient.publish(topic, message)
@@ -82,6 +83,11 @@ vacbot.errorEvents.subscribe(error_report)
 vacbot.request_all_statuses
 #vacbot.refresh_components
 battery_report(vacbot.battery_status)
+
+# These two only reports when cleaning, so I try to get an initial value.
+vacbot.run(GetLifeSpan("main_brush"))
+vacbot.run(GetLifeSpan("side_brush"))
+
 
 ## MQTT ----> Ecovacs
 # Subscribe to this ecovac topics, translate mqtt commands into sucks commands to robot
