@@ -21,7 +21,7 @@ vacbot.connect_and_wait_until_ready()
 
 # MQTT INIT
 mqttclient = mqtt.Client("sucks-gateway")
-mqttclient.connect_and_wait_until_ready("192.168.1.2", port=8884, keepalive=60,bind_address="")
+mqttclient.connect("192.168.1.2", port=8884, keepalive=60,bind_address="")
 # once connected I can use the simpler publish method
 
 
