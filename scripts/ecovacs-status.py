@@ -19,12 +19,14 @@ vacbot.connect_and_wait_until_ready()
 def battery_report(level):
     print("inside battery_event callback")
     print(level)
+    vacuum_report() 
 
 # Callback function for status events
 def status_report(cosa):
     print("inside status_event callback")
     print(cosa)
-
+    vacuum_report() 
+    
 # Callback function for lifespan (components) events
 def lifespan_report(cosa):
     print("inside lifespan_event callback")
@@ -34,6 +36,11 @@ def lifespan_report(cosa):
 def error_report(cosa):
     print("inside error_event callback")
     print(cosa)
+
+# Library generated summary status. Smart merge of clean and battery status
+def vacuum_report():
+    print("Inside vacuum_report")
+    print(vacbot.vacuum_status)
 
 # Subscribe to the all event emitters
 vacbot.batteryEvents.subscribe(battery_report)
@@ -54,7 +61,6 @@ status_report(vacbot.clean_status)
 #vacuum_status=vacbot.vacuum_status
 #fan_speed=vacbot.fan_speed
 lifespan_report(vacbot.components)
-
 
 # # Publish values for the first time
 # publish.single("ecovacs/1/battery_status", battery_status, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
