@@ -23,25 +23,26 @@ def battery_report(level):
     vacuum_report()
 
 # Callback function for status events
-def status_report(cosa):
+def status_report(status):
     print("inside status_event callback")
-    mqttpublish(my_vac,"status",cosa)
-    print(cosa)
+    mqttpublish(my_vac,"status",status)
+    print(status)
     vacuum_report() 
     
 # Callback function for lifespan (components) events
 # A esta funcion le falta bastante laburo porque lifespan puede ser muchas cosas. Puedo mandarlo en un solo json y pasarle el problema
 # a openhab, o desarmar acá y reportar cada elemento en un topic distinto. Problema acá, facil en openhab.
-def lifespan_report(cosa):
+def lifespan_report(lifespan):
+    lifespan_str=json.dumps(lifespan)
     print("inside lifespan_event callback")
-    mqttpublish(my_vac,"lifespan",json.dumps(cosa))
-    print(cosa)
+    mqttpublish(my_vac,"lifespan",lifespan_str)
+    print(lifespan_str)
 
 # Callback function for error events
-def error_report(cosa):
+def error_report(error):
     print("inside error_event callback")
-    mqttpublish(my_vac,"error",level)
-    print(cosa)
+    mqttpublish(my_vac,"error",error)
+    print(error)
 
 # Library generated summary status. Smart merge of clean and battery status
 def vacuum_report():
