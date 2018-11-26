@@ -101,7 +101,7 @@ def on_message(client, userdata, message):
         vacbot.run(Clean())
     elif comando == "charge":
         vacbot.run(Charge())
-    elif comando == "sound":
+    elif comando == "playsound":
         vacbot.run(PlaySound())    
     else:
         print("Comando desconocido")
