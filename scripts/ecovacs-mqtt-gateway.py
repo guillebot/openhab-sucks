@@ -24,8 +24,6 @@ mqttclient = mqtt.Client("sucks-gateway")
 mqttclient.connect("192.168.1.2", port=8884, keepalive=60,bind_address="")
 # once connected I can use the simpler publish method
 
-
-
 ## ECOVACS ---> MQTT
 ## Callback functions. Triggered when sucks receives a status change from Ecovacs.
 # Callback function for battery events
@@ -108,6 +106,6 @@ def on_message(client, userdata, message):
         
 mqttclient.on_message=on_message
 mqttclient.loop_start()
+# I assume here that the mqtt connection will be ok forever. I should probably test it and reconnect if necessary.
 
 #vacbot.disconnect(wait=True) # Unused. This program is intended to run permanently.
-
