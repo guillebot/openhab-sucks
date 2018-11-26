@@ -38,9 +38,12 @@ def status_report(status):
 # A esta funcion le falta bastante laburo porque lifespan puede ser muchas cosas. Puedo mandarlo en un solo json y pasarle el problema
 # a openhab, o desarmar acá y reportar cada elemento en un topic distinto. Problema acá, facil en openhab.
 def lifespan_report(lifespan):
-    lifespan_str=json.dumps(lifespan)
-    mqttpublish(did,"lifespan",lifespan_str)
-    print("Lifespan: "+lifespan_str)
+    tipo=lifespan['type']
+    valor=lifespan['lifespan']
+    mqttpublish(did,"components/"+tipo,valor)
+    print("Lifespan: "+json_dumps(lifespan))
+    print("tipo: "+tipo)
+    print("valor: "+valor)
 
 # Callback function for error events
 # This also needs some work in order to understand error object and send the correct mqtt message
@@ -54,7 +57,7 @@ def vacuum_report():
     mqttpublish(did,"vacuum",vacbot.vacuum_status)
     print("Vacuum status:"+vacbot.vacuum_status)
     if vacbot.fan_speed is not None:
-        mqttpublish(did,"fan",vacbot.fan_speed)
+        mqttpublish(did,"fan_speed",vacbot.fan_speed)
         print("Fan Speed: "+vacbot.fan_speed)
 
 # Publish to MQTT. Need to move harcoded values to config file or at least at the top of the file.
