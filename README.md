@@ -48,8 +48,8 @@ ecovacs/{did}/vacuum
 ecovacs/{did}/fan_speed
 ecovacs/{did}/components/main_brush
 ecovacs/{did}/components/side_brush
-ecovacs/{did}/components/filter```
-
+ecovacs/{did}/components/filter
+```
 
 #### Note:
 `{did}` its the Device Id. It's something like E0000626317798704736. You can get it running `ecovacs-mqtt-gateway.py` and it will show on the first line. You can also get it running `sucks --debug stop`, and it will be in a line like this:
