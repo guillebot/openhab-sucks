@@ -52,9 +52,10 @@ def error_report(mierror):
 # Library generated summary status. Smart merge of clean and battery status
 def vacuum_report():
     mqttpublish(did,"vacuum",vacbot.vacuum_status)
-    mqttpublish(did,"fan",vacbot.fan_speed)
     print("Vacuum status:"+vacbot.vacuum_status)
-    print("Fan Speed: "+vacbot.fan_speed)
+    if vacbot.fan_speed is not None:
+        mqttpublish(did,"fan",vacbot.fan_speed)
+        print("Fan Speed: "+vacbot.fan_speed)
 
 # Publish to MQTT. Need to move harcoded values to config file or at least at the top of the file.
 def mqttpublish(did,subtopic,message):
