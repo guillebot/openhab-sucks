@@ -45,8 +45,8 @@ vacbot.errorEvents.subscribe(error_report)
 vacbot.request_all_statuses
 vacbot.refresh_components
 
-vacbot.batteryEvents.notify
-vacbot.statusEvents.notify
+vacbot._handle_battery_info
+vacbot._handle_clean_report
 vacbot.lifespanEvents.notify
 vacbot.errorEvents.notify
 
