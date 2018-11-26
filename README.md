@@ -74,6 +74,11 @@ To control the vacuum cleaner via mqtt you have to publish `clean` or `charge` m
 
 `ecovacs/{did}/command`
 
+#### Note:
+
+I recommmend [MQTT.fx](https://mqttfx.jensd.de/) to monitor mqtt activity and do the troubleshooting.
+
+
 # To do - Next steps
 
 - Move some harcoded config (mqtt base topic, server, port) to some config file 
