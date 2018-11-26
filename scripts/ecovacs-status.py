@@ -41,10 +41,12 @@ def lifespan_report(lifespan):
     print(lifespan_str)
 
 # Callback function for error events
+# This also needs some work in order to understand error object and send the correct mqtt message
 def error_report(error):
+    error_str=str(error)
     print("error_event callback")
-    mqttpublish(did,"error",error)
-    print(error)
+    mqttpublish(did,"error",error_str)
+    print(error_str)
 
 # Library generated summary status. Smart merge of clean and battery status
 def vacuum_report():
@@ -68,7 +70,6 @@ vacbot.request_all_statuses
 vacbot.refresh_components
 
 # When I first run, query all values and report them
-# # Query values for the first time
 battery_report(vacbot.battery_status*100)
 #charge_status=vacbot.charge_status
 status_report(vacbot.clean_status)
