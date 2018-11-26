@@ -96,19 +96,21 @@ print("Subscribe topic: "+subscribe_topic)
 mqttclient.subscribe(subscribe_topic)
 
 def on_message(client, userdata, message):
-    comando=str(message.payload.decode("utf-8")).lstrip()
-    print("message received=",comando)
+    received_command=str(message.payload.decode("utf-8")).lstrip()
+    print("message received=",received_command)
     print("message topic=",message.topic)
     print("message qos=",message.qos)
     print("message retain flag=",message.retain)
-    if comando == "clean":
+    if received_command == CLEAN_MODE_AUTO:  # "auto"
         vacbot.run(Clean())
-    elif comando == "charge":
+    elif received_command == "charge":
         vacbot.run(Charge())
-    elif comando == "playsound":
+    elif received_command == "playsound":
         vacbot.run(PlaySound())    
+    elif received_command == CLEAN_MODE_STOP:
+        vacbot.run(Stop())     
     else:
-        print("Comando desconocido")
+        print("Unknown command")
         
 mqttclient.on_message=on_message
 mqttclient.loop_start()
