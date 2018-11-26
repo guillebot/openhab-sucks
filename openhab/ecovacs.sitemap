@@ -8,5 +8,8 @@ Frame label=Ecovacs {
     Text item=ecovacs_1_main_brush
     Text item=ecovacs_1_side_brush
     Text item=ecovacs_1_filter
+
+    Switch item=ECOVACS_COMMAND label="Ecovac Vacuum" mappings=[0="Clean", 1="Charge"]
+
 }
 
