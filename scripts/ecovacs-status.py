@@ -108,6 +108,7 @@ def on_message(client, userdata, message):
     print("message topic=",message.topic)
     print("message qos=",message.qos)
     print("message retain flag=",message.retain)
+    print("Comando a correr:",COMMANDS_MQTT_TO_SUCKS[comando])
     vacbot.run(COMMANDS_MQTT_TO_SUCKS[comando])
 
 mqttclient.on_message=on_message
