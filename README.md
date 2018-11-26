@@ -56,9 +56,9 @@ ecovacs/{did}/components/filter
 ```
 
 #### Note:
-`{did}` its the Device Id. It's something like E0000626317798704736. You can get it running `ecovacs-mqtt-gateway.py` and it will show on the first line. You can also get it running `sucks --debug stop`, and it will be in a line like this:
+`{did}` its the Device Id. It's something like E0000626317798704736. You can get it by running `ecovacs-mqtt-gateway.py` and it will show on the first line. Or you can also get it running `sucks --debug stop`, and it will be in a line like this:
 
-`sucks      DEBUG    got {'todo': 'result', 'result': 'ok', 'devices': [{**'did': 'E0000693437743404736'**, 'name': 'E00006938173430154535736`
+`sucks      DEBUG    got {'todo': 'result', 'result': 'ok', 'devices': [{`**`'did': 'E0000693437743404736'`**`, 'name': 'E00006938173430154535736`
 
 #### Example:
 
