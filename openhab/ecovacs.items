@@ -1,8 +1,8 @@
-Number ecovacs_1_battery_level "Battery Level [%.0f %%]" {mqtt="<[mosquitto:ecovacs/E0000693817701104736/battery_level:state:default]"}
-String ecovacs_1_battery_status "Battery Status [%s]"    {mqtt="<[mosquitto:ecovacs/E0000693817701104736/battery_status:state:default]"}
-String ecovacs_1_clean_status  "Clean Status [%s]"       {mqtt="<[mosquitto:ecovacs/E0000693817701104736/clean_status:state:default]"}
-String ecovacs_1_vacuum_status "Vacuum Status [%s]"      {mqtt="<[mosquitto:ecovacs/E0000693817701104736/vacuum:state:default]"}
-String ecovacs_1_fan_speed     "Fan Speed [%s]"          {mqtt="<[mosquitto:ecovacs/E0000693817701104736/fan_speed:state:default]"}
-Number ecovacs_1_main_brush    "Main Brush [%.0f %%]"    {mqtt="<[mosquitto:ecovacs/E0000693817701104736/components/main_brush:state:default]"}
-Number ecovacs_1_side_brush    "Side Brush [%.0f %%]"    {mqtt="<[mosquitto:ecovacs/E0000693817701104736/components/side_brush:state:default]"}
-Number ecovacs_1_filter        "Filter [%.0f %%]"        {mqtt="<[mosquitto:ecovacs/E0000693817701104736/components/filter:state:default]"}
+Number ecovacs_1_battery_level "Battery Level [%.0f %%]" {mqtt="<[mosquitto:ecovacs/{your device id}/battery_level:state:default]"}
+String ecovacs_1_battery_status "Battery Status [%s]"    {mqtt="<[mosquitto:ecovacs/{your device id}/battery_status:state:default]"}
+String ecovacs_1_clean_status  "Clean Status [%s]"       {mqtt="<[mosquitto:ecovacs/{your device id}/clean_status:state:default]"}
+String ecovacs_1_vacuum_status "Vacuum Status [%s]"      {mqtt="<[mosquitto:ecovacs/{your device id}/vacuum:state:default]"}
+String ecovacs_1_fan_speed     "Fan Speed [%s]"          {mqtt="<[mosquitto:ecovacs/{your device id}/fan_speed:state:default]"}
+Number ecovacs_1_main_brush    "Main Brush [%.0f %%]"    {mqtt="<[mosquitto:ecovacs/{your device id}/components/main_brush:state:default]"}
+Number ecovacs_1_side_brush    "Side Brush [%.0f %%]"    {mqtt="<[mosquitto:ecovacs/{your device id}/components/side_brush:state:default]"}
+Number ecovacs_1_filter        "Filter [%.0f %%]"        {mqtt="<[mosquitto:ecovacs/{your device id}/components/filter:state:default]"}
