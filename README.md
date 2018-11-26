@@ -1,6 +1,6 @@
 # openhab-sucks
 
-My attempt at monitor and control Ecovacs Deebot vacuum cleaners from OpenHAB
+My attempt at **monitor** and **control** Ecovacs Deebot vacuum cleaners from OpenHAB, via [MQTT](http://mqtt.org/)
 
 At the core, the great [sucks library](https://github.com/wpietri/sucks) by [@wpietri](https://github.com/wpietri)
 
@@ -26,11 +26,13 @@ It should remain running, for that, I recommend [Supervisor](http://supervisord.
 
 # Concept
 
-I'm using sucks library to connect to the Ecovacs system and monitor for status and activity.
+I'm using sucks library to connect to the Ecovacs system and monitor for status and activity. At start (kind of) and whenever a status change is detected, it publishes the values to the mqtt broker [Eclipse Mosquitto](https://mosquitto.org/). 
 
-At start and whenever it changes, I publish the values to my mqtt broker [Eclipse Mosquitto](https://mosquitto.org/). I use [MQTT](http://mqtt.org/) for all my IoT/Sensors communications to [OpenHAB](https://www.openhab.org/) and strongly recommend everybody to do so. MQTT it's standard, easy to deploy, easy to monitor from any device, and gives you the possibility of isolate devices from the home automation controller with a simple standard layer of abstraction. 
+I use [MQTT](http://mqtt.org/) for all my IoT/Sensors communications to [OpenHAB](https://www.openhab.org/) and strongly recommend everybody to do so. 
 
-You can use the provided [ecovacs.items](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.items) and [ecovacs.sitemap](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.sitemap) to show the status.
+[MQTT](http://mqtt.org/) it's standard, easy to deploy, easy to monitor from any device, and gives you the possibility of isolate devices from the home automation controller with a simple standard layer of abstraction. 
+
+You can use the provided [ecovacs.items](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.items) and [ecovacs.sitemap](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.sitemap) to show the status on your OpenHAB installation, or just listen to the mqtt topics from your preferred software.
 
 It already provides some basic control, at the moment: `clean` and `charge`.
 
@@ -71,7 +73,6 @@ I use and recommend OpenHAB.
 To control the vacuum cleaner via mqtt you have to publish `clean` or `charge` message to the following topic:
 
 `ecovacs/{did}/command`
-
 
 # To do - Next steps
 
