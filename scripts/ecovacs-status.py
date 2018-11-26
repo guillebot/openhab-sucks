@@ -100,7 +100,7 @@ def on_message(client, userdata, message):
     print("message qos=",message.qos)
     print("message retain flag=",message.retain)
     try:
-        vacbot.run(comando)
+        vacbot.run(vacbot,clean)
     except:
         print("ERROR!!!")
 
