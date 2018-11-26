@@ -74,7 +74,6 @@ vacbot.refresh_components
 battery_report(vacbot.battery_status*100)
 #charge_status=vacbot.charge_status
 status_report(vacbot.clean_status)
-lifespan_report(vacbot.components)
 
 ## MQTT ----> Ecovacs
 # Subscribe to this ecovac topics, translate mqtt commands into sucks commands to robot
