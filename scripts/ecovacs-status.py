@@ -104,7 +104,7 @@ def on_message(client, userdata, message):
         vacbot.run(Clean())
     elif comando == "charge":
         vacbot.run(Charge())
-    elif:
+    else:
         print("Comando desconocido")
         
 mqttclient.on_message=on_message
