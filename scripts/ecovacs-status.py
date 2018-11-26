@@ -19,13 +19,14 @@ vacbot = VacBot(api.uid, api.REALM, api.resource, api.user_access_token, my_vac,
 vacbot.connect_and_wait_until_ready()
 
 ## ECOVACS ---> MQTT
-
 ## Callback functions. Triggered when sucks receives a status change from Ecovacs.
 # Callback function for battery events
 def battery_report(level):
     level_str=str(level)
-    mqttpublish(did,"battery",level_str)
-    print("Battery: "+level_str)
+    mqttpublish(did,"battery_level",level_str)
+    mqttpublish(did,"battery_status",vacbot.battery_status)
+    print("Battery level: "+level_str)
+    print("Battery status: "+vacbot.battery_status)
     vacuum_report()
 
 # Callback function for status events
