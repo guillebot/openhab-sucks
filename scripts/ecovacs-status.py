@@ -99,6 +99,8 @@ def on_message(client, userdata, message):
     print("message qos=",message.qos)
     print("message retain flag=",message.retain)
 
+mqttclient.on_message=on_message
+mqttclient.loop_start()
 
 #vacbot.disconnect(wait=True) # Unused. This program is intended to run permanently.
 
