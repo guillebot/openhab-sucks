@@ -86,14 +86,18 @@ vacbot.errorEvents.subscribe(error_report)
 vacbot.request_all_statuses
 #vacbot.refresh_components
 battery_report(int(vacbot.battery_status*100))
-#charge_status=vacbot.charge_status
 
 ## MQTT ----> Ecovacs
 # Subscribe to this ecovac topics, translate mqtt commands into sucks commands to robot
+subscribe_topic="ecovacs/"+cid+"/command"
+print("Subscribe topic: "+subscribe_topic)
+mqttclient.Subscribe(subscribe_topic)
 
-
-
-
+def on_message(client, userdata, message):
+    print("message received " ,str(message.payload.decode("utf-8")))
+    print("message topic=",message.topic)
+    print("message qos=",message.qos)
+    print("message retain flag=",message.retain)
 
 
 #vacbot.disconnect(wait=True) # Unused. This program is intended to run permanently.
