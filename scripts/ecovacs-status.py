@@ -45,6 +45,11 @@ vacbot.errorEvents.subscribe(error_report)
 vacbot.request_all_statuses
 vacbot.refresh_components
 
+vacbot.batteryEvents.notify
+vacbot.statusEvents.notify
+vacbot.lifespanEvents.notify
+vacbot.errorEvents.notify
+
 # When I first run, query all values and report them
 # # Query values for the first time
 #battery_status=int(vacbot.battery_status*100)
