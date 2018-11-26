@@ -18,18 +18,19 @@ print("Device ID: "+did)
 vacbot = VacBot(api.uid, api.REALM, api.resource, api.user_access_token, my_vac, config['continent'], monitor=True)
 vacbot.connect_and_wait_until_ready()
 
+## ECOVACS ---> MQTT
+
+## Callback functions. Triggered when sucks receives a status change from Ecovacs.
 # Callback function for battery events
 def battery_report(level):
-    print("battery_event callback")
     mqttpublish(did,"battery",level)
-    print(level)
+    print("Battery: "+level)
     vacuum_report()
 
 # Callback function for status events
 def status_report(status):
-    print("status_event callback")
     mqttpublish(did,"status",status)
-    print(status)
+    print("Status: "+status)
     vacuum_report() 
     
 # Callback function for lifespan (components) events
@@ -37,25 +38,22 @@ def status_report(status):
 # a openhab, o desarmar acá y reportar cada elemento en un topic distinto. Problema acá, facil en openhab.
 def lifespan_report(lifespan):
     lifespan_str=json.dumps(lifespan)
-    print("lifespan_event callback")
     mqttpublish(did,"lifespan",lifespan_str)
-    print(lifespan_str)
+    print("Lifespan: "+lifespan_str)
 
 # Callback function for error events
 # This also needs some work in order to understand error object and send the correct mqtt message
 def error_report(mierror):
     error_str=str(mierror)
-    print("error_event callback")
     mqttpublish(did,"error",error_str)
-    print(error_str)
+    print("Error: "+error_str)
 
 # Library generated summary status. Smart merge of clean and battery status
 def vacuum_report():
-    print("vacuum_report")
     mqttpublish(did,"vacuum",vacbot.vacuum_status)
     mqttpublish(did,"fan",vacbot.fan_speed)
     print("Vacuum status:"+vacbot.vacuum_status)
-    print("Fan Speed:"+vacbot.fan_speed)
+    print("Fan Speed: "+vacbot.fan_speed)
 
 # Publish to MQTT. Need to move harcoded values to config file or at least at the top of the file.
 def mqttpublish(did,subtopic,message):
@@ -71,12 +69,18 @@ vacbot.errorEvents.subscribe(error_report)
 # For the first run, try to get & report all statuses
 vacbot.request_all_statuses
 vacbot.refresh_components
-
-# When I first run, query all values and report them
 battery_report(vacbot.battery_status*100)
 #charge_status=vacbot.charge_status
 status_report(vacbot.clean_status)
 lifespan_report(vacbot.components)
+
+## MQTT ----> Ecovacs
+# Subscribe to this ecovac topics, translate mqtt commands into sucks commands to robot
+
+
+
+
+
 
 #vacbot.disconnect(wait=True) # Unused. This program is intended to run permanently.
 
