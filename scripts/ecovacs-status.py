@@ -26,7 +26,7 @@ def battery_report(level):
     mqttpublish(did,"battery_level",level_str)
     mqttpublish(did,"battery_status",vacbot.battery_status)
     print("Battery level: "+level_str)
-    print("Battery status: "+vacbot.battery_status)
+    print("Battery status: "+str(vacbot.battery_status))
     vacuum_report()
 
 # Callback function for status events
