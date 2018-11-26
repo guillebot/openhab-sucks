@@ -12,6 +12,7 @@ config = read_config()
 api = EcoVacsAPI(config['device_id'], config['email'], config['password_hash'],
                          config['country'], config['continent'])
 my_vac = api.devices()[0]
+print(my_vac)
 vacbot = VacBot(api.uid, api.REALM, api.resource, api.user_access_token, my_vac, config['continent'], monitor=True)
 vacbot.connect_and_wait_until_ready()
 
@@ -50,8 +51,9 @@ def vacuum_report():
     print(vacbot.vacuum_status)
 
 # Publish to MQTT. Need to put harcoded values into config file or at least at the top of the file.
-def mqttpublish(vac,topic,message):
-    publish.single("ecovacs/"+vac+"/"+topic, message, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
+def mqttpublish(vac,subtopic,message):
+    topic="ecovacs/"+vac+"/"+subtopic
+    publish.single(topic, message, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
 
 # Subscribe to the all event emitters
 vacbot.batteryEvents.subscribe(battery_report)
