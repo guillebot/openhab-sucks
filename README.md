@@ -40,8 +40,8 @@ It already provides some basic control, at the moment: `clean` and `charge`.
 
 This gateway, when running, will listen from sucks events and update the following mqtt topics:
 
-`ecovacs/{did}/battery_level` 
-`ecovacs/{did}/battery_status` 
+```ecovacs/{did}/battery_level
+ecovacs/{did}/battery_status``` 
 `ecovacs/{did}/clean_status`
 `ecovacs/{did}/vacuum`
 `ecovacs/{did}/fan_speed`
