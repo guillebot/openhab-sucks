@@ -15,29 +15,33 @@ my_vac = api.devices()[0]
 vacbot = VacBot(api.uid, api.REALM, api.resource, api.user_access_token, my_vac, config['continent'], monitor=True)
 vacbot.connect_and_wait_until_ready()
 
-#vacbot.refresh_components
-
+# Callback function for battery events
 def battery_report(level):
     print("inside battery_event callback")
     print(level)
 
+# Callback function for status events
 def status_report(cosa):
     print("inside status_event callback")
     print(cosa)
 
+# Callback function for lifespan (components) events
 def lifespan_report(cosa):
     print("inside lifespan_event callback")
     print(cosa)
 
+# Callback function for error events
 def error_report(cosa):
     print("inside error_event callback")
     print(cosa)
 
+# Subscribe to the all event emitters
 vacbot.batteryEvents.subscribe(battery_report)
 vacbot.statusEvents.subscribe(status_report)
 vacbot.lifespanEvents.subscribe(lifespan_report)
 vacbot.errorEvents.subscribe(error_report)
 
+vacbot.refresh_components
 
 # ###
 # # Query values for the first time
