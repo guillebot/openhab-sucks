@@ -19,14 +19,14 @@ vacbot.connect_and_wait_until_ready()
 
 # Callback function for battery events
 def battery_report(level):
-    print("inside battery_event callback")
+    print("battery_event callback")
     mqttpublish(did,"battery",level)
     print(level)
     vacuum_report()
 
 # Callback function for status events
 def status_report(status):
-    print("inside status_event callback")
+    print("status_event callback")
     mqttpublish(did,"status",status)
     print(status)
     vacuum_report() 
@@ -36,19 +36,19 @@ def status_report(status):
 # a openhab, o desarmar acá y reportar cada elemento en un topic distinto. Problema acá, facil en openhab.
 def lifespan_report(lifespan):
     lifespan_str=json.dumps(lifespan)
-    print("inside lifespan_event callback")
+    print("lifespan_event callback")
     mqttpublish(did,"lifespan",lifespan_str)
     print(lifespan_str)
 
 # Callback function for error events
 def error_report(error):
-    print("inside error_event callback")
+    print("error_event callback")
     mqttpublish(did,"error",error)
     print(error)
 
 # Library generated summary status. Smart merge of clean and battery status
 def vacuum_report():
-    print("Inside vacuum_report")
+    print("vacuum_report")
     mqttpublish(did,"vacuum",vacbot.vacuum_status)
     print(vacbot.vacuum_status)
 
