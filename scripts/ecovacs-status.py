@@ -34,7 +34,7 @@ def status_report(cosa):
 # a openhab, o desarmar acá y reportar cada elemento en un topic distinto. Problema acá, facil en openhab.
 def lifespan_report(cosa):
     print("inside lifespan_event callback")
-    mqttpublish(my_vac,"lifespan",cosa)
+    mqttpublish(my_vac,"lifespan",json.dumps(cosa)
     print(cosa)
 
 # Callback function for error events
