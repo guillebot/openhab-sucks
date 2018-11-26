@@ -12,7 +12,7 @@ config = read_config()
 api = EcoVacsAPI(config['device_id'], config['email'], config['password_hash'],
                          config['country'], config['continent'])
 my_vac = api.devices()[0]
-did=my_vac['did']
+did=str(my_vac['did'])
 print(did)
 vacbot = VacBot(api.uid, api.REALM, api.resource, api.user_access_token, my_vac, config['continent'], monitor=True)
 vacbot.connect_and_wait_until_ready()
