@@ -24,9 +24,7 @@ vacbot.connect_and_wait_until_ready()
 def battery_report(level):
     level_str=str(level)
     mqttpublish(did,"battery_level",level_str)
-    mqttpublish(did,"charge_status",vacbot.charge_status)
     print("Battery level: "+level_str)
-    print("Charge Status: "+vacbot.charge_status)
     vacuum_report()
 
 # Callback function for status events
@@ -62,6 +60,8 @@ def vacuum_report():
     if vacbot.fan_speed is not None:
         mqttpublish(did,"fan_speed",vacbot.fan_speed)
         print("Fan Speed: "+vacbot.fan_speed)
+    mqttpublish(did,"charge_status",vacbot.charge_status)
+    print("Charge Status: "+vacbot.charge_status)
 
 # Publish to MQTT. Need to move harcoded values to config file or at least at the top of the file.
 def mqttpublish(did,subtopic,message):
