@@ -34,7 +34,7 @@ I use [MQTT](http://mqtt.org/) for all my IoT/Sensors communications to [OpenHAB
 
 [MQTT](http://mqtt.org/) it's standard, lightewight, easy to deploy, easy to monitor from any device, and gives you the possibility of isolate devices from the home automation controller with a simple standard layer of abstraction. 
 
-You can use the provided [ecovacs.items](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.items) and [ecovacs.sitemap](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.sitemap) to show the status on your OpenHAB installation, or just listen to the mqtt topics from your preferred software.
+You can use the provided [ecovacs.items](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.items) and [ecovacs.sitemap](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.sitemap) to show the status on your OpenHAB installation, and control the robot from OpenHAB, or just listen/command to the mqtt topics using your preferred software.
 
 It already provides some basic control, at the moment: `clean` and `charge`.
 
