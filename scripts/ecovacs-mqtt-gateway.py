@@ -81,13 +81,13 @@ vacbot.errorEvents.subscribe(error_report)
 
 # For the first run, try to get & report all statuses
 vacbot.request_all_statuses
-#vacbot.refresh_components
 battery_report(vacbot.battery_status)
 
-# These two only reports when cleaning, so I try to get an initial value.
+# These first two only reports when cleaning, so I ask for initial values here.
+# For some reason, filter reports at start, but I ask it anyways in case this behaviour changes.
 vacbot.run(GetLifeSpan("main_brush"))
 vacbot.run(GetLifeSpan("side_brush"))
-
+vacbot.run(GetLifeSpan("filter"))
 
 ## MQTT ----> Ecovacs
 # Subscribe to this ecovac topics, translate mqtt commands into sucks commands to robot
