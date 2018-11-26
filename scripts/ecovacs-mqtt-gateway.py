@@ -85,9 +85,9 @@ battery_report(vacbot.battery_status)
 
 # These first two only reports when cleaning, so I ask for initial values here.
 # For some reason, filter reports at start, but I ask it anyways in case this behaviour changes.
-vacbot.run(GetLifeSpan("main_brush"))
-vacbot.run(GetLifeSpan("side_brush"))
-vacbot.run(GetLifeSpan("filter"))
+vacbot.run(GetLifeSpan(COMPONENT_MAIN_BRUSH))
+vacbot.run(GetLifeSpan(COMPONENT_SIDE_BRUSH))
+vacbot.run(GetLifeSpan(COMPONENT_FILTER))
 
 ## MQTT ----> Ecovacs
 # Subscribe to this ecovac topics, translate mqtt commands into sucks commands to robot
