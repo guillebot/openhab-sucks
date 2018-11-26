@@ -1,8 +1,8 @@
 # openhab-sucks
 
-My attempt at **monitor** and **control** Ecovacs Deebot vacuum cleaners from OpenHAB, via [MQTT](http://mqtt.org/)
+My attempt at **monitor** and **control** Ecovacs Deebot vacuum cleaners from OpenHAB, via [MQTT](http://mqtt.org/).
 
-At the core, the great [sucks library](https://github.com/wpietri/sucks) by [@wpietri](https://github.com/wpietri)
+At the core, the great [sucks library](https://github.com/wpietri/sucks) by [@wpietri](https://github.com/wpietri).
 
 # Installation
 
@@ -10,27 +10,27 @@ At the core, the great [sucks library](https://github.com/wpietri/sucks) by [@wp
 
 `pip install sucks`
 
-2. Run ```sucks login```, in order to generate the necesary ```sucks.conf``` config file
+2. Run ```sucks login```, in order to generate the necesary ```sucks.conf``` config file.
 
-3. **PLEASE TEST** that you can run sucks correctly. Play with ```sucks clean 1```, ```sucks stop```
+3. **PLEASE TEST** that you can run sucks correctly. Play with ```sucks clean 1```, ```sucks stop```. 
 
-Only continue if you are sure that sucks it's running fine. If not please go to the great sucks community and ask for help.
+Only continue if you are sure that `sucks` it's running fine. If not please go to the great sucks community and ask for help.
 
 4. Install dependencies
 
 ```pip install paho-mqtt```
 
-5. Only if (3) it's ok: Clone this repo and run openhab-sucks.py
+5. Only if (3) it's ok: Clone this repo and run `ecovacs-mqtt-gateway.py`
 
-It should remain running, for that, I recommend [Supervisor](http://supervisord.org/)
+It should remain running in the background, for that, I recommend [Supervisor](http://supervisord.org/)
 
 # Concept
 
-I'm using sucks library to connect to the Ecovacs system and monitor for status and activity. At start (kind of) and whenever a status change is detected, it publishes the values to the mqtt broker [Eclipse Mosquitto](https://mosquitto.org/). 
+I'm using sucks library to connect to the Ecovacs system and monitor for status and activity. At startup (kind of) and whenever a status change is detected, it publishes the values to the mqtt broker [Eclipse Mosquitto](https://mosquitto.org/). I also listen for mqtt control messages to send commands to the vacuum cleaners.
 
 I use [MQTT](http://mqtt.org/) for all my IoT/Sensors communications to [OpenHAB](https://www.openhab.org/) and strongly recommend everybody to do so. 
 
-[MQTT](http://mqtt.org/) it's standard, easy to deploy, easy to monitor from any device, and gives you the possibility of isolate devices from the home automation controller with a simple standard layer of abstraction. 
+[MQTT](http://mqtt.org/) it's standard, lightewight, easy to deploy, easy to monitor from any device, and gives you the possibility of isolate devices from the home automation controller with a simple standard layer of abstraction. 
 
 You can use the provided [ecovacs.items](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.items) and [ecovacs.sitemap](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.sitemap) to show the status on your OpenHAB installation, or just listen to the mqtt topics from your preferred software.
 
