@@ -21,8 +21,22 @@ def battery_report(level):
     print("inside battery_event callback")
     print(level)
 
+def status_report(cosa):
+    print("inside status_event callback")
+    print(cosa)
+
+def lifespan_report(cosa):
+    print("inside lifespan_event callback")
+    print(cosa)
+
+def error_report(cosa):
+    print("inside error_event callback")
+    print(cosa)
 
 vacbot.batteryEvents.subscribe(battery_report)
+vacbot.statusEvents.subscribe(status_report)
+vacbot.lifespanEvents.subscribe(lifespan_report)
+vacbot.errorEvents.subscribe(error_report)
 
 
 # ###
