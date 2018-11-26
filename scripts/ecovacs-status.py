@@ -89,7 +89,7 @@ battery_report(int(vacbot.battery_status*100))
 
 ## MQTT ----> Ecovacs
 # Subscribe to this ecovac topics, translate mqtt commands into sucks commands to robot
-subscribe_topic="ecovacs/"+cid+"/command"
+subscribe_topic="ecovacs/"+did+"/command"
 print("Subscribe topic: "+subscribe_topic)
 mqttclient.Subscribe(subscribe_topic)
 
