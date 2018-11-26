@@ -3,6 +3,7 @@ import sucks
 import configparser
 from sucks.cli import *
 import paho.mqtt.publish as publish
+import paho.mqtt.client as mqtt
 import json
 
 # Reading the config file. In my system /root/.config/sucks.conf
@@ -17,6 +18,13 @@ did=str(my_vac['did'])
 print("Device ID: "+did)
 vacbot = VacBot(api.uid, api.REALM, api.resource, api.user_access_token, my_vac, config['continent'], monitor=True)
 vacbot.connect_and_wait_until_ready()
+
+# MQTT INIT
+mqttclient = mqtt.client("sucks-gateway")
+mqttclient.connect_and_wait_until_ready("192.168.1.2", port=8884, keepalive=60,bind_address="")
+# once connected I can use the simpler publish method
+
+
 
 ## ECOVACS ---> MQTT
 ## Callback functions. Triggered when sucks receives a status change from Ecovacs.
@@ -66,8 +74,8 @@ def vacuum_report():
 # Publish to MQTT. Need to move harcoded values to config file or at least at the top of the file.
 def mqttpublish(did,subtopic,message):
     topic="ecovacs/"+did+"/"+subtopic
-    publish.single(topic, message, hostname="192.168.1.2", port=8884, client_id="ecovacs-sucks")
-
+    mqttclient.publish(topic, message)
+    
 # Subscribe to the all event emitters
 vacbot.batteryEvents.subscribe(battery_report)
 vacbot.statusEvents.subscribe(status_report)
@@ -76,7 +84,7 @@ vacbot.errorEvents.subscribe(error_report)
 
 # For the first run, try to get & report all statuses
 vacbot.request_all_statuses
-vacbot.refresh_components
+#vacbot.refresh_components
 battery_report(int(vacbot.battery_status*100))
 #charge_status=vacbot.charge_status
 
