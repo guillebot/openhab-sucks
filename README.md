@@ -32,10 +32,46 @@ At start and whenever it changes, I publish the values to my mqtt broker [Eclips
 
 You can use the provided [ecovacs.items](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.items) and [ecovacs.sitemap](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.sitemap) to show the status.
 
-It's very basic by now and it doesn't provides control. (I'm controlling the robot by system calling sucks, see To Do bellow)
+It already provides some basic control, by now `clean` and `charge`
+
+# Features
+
+## Monitor
+
+This gateway, when running, will listen from sucks events and update the following mqtt topics:
+
+`{did}` its the Device Id. It's something like E0000626317798704736. You can get it running `ecovacs-mqtt-gateway.py` and it will show on the first line. You can also get it running `sucks --debug stop`, and it will be in a line like this:
+
+`sucks      DEBUG    got {'todo': 'result', 'result': 'ok', 'devices': [{**'did': 'E0000693437743404736'**, 'name': 'E00006938173430154535736`
+
+`ecovacs/{did}/battery_level`
+`ecovacs/{did}/battery_status`
+`ecovacs/{did}/clean_status`
+`ecovacs/{did}/vacuum`
+`ecovacs/{did}/fan_speed`
+`ecovacs/{did}/components/main_brush`
+`ecovacs/{did}/components/side_brush`
+`ecovacs/{did}/components/filter`
+
+Example:
+
+`ecovacs/E0345693817701104736/battery_level
+
+Keep in mind that this is simply a convention by me. This will be useful if in the future I decide to support more than one robot. If you understand this you can use anything you want in {did}, even something more human friendly like `/my_vacuum_cleaner/`
+
+So from this on, you can use your usual mqtt consuming software to keep yourself posted of the Ecovacs whereabouts.
+
+I use and recommend OpenHAB.
+
+## Control
+
+To control the vacuum cleaner via mqtt you have to publish `clean` or `charge` message to the following topic:
+
+`ecovacs/{did}/command`
+
 
 # To do - Next steps
 
-- Add more info. Consumables, etc.
-- Add control. Put the openhab-sucks.py suscribed to mqtt and receive commands from openhab.
+- Move some harcoded config (mqtt base topic, server, port) to some config file 
+- Test for stability on the mqtt connection. Reconnect if necessary.
 - (mine) Apply some logic with presence and automate ecovacs run daily.
