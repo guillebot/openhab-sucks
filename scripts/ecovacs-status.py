@@ -39,7 +39,7 @@ def status_report(status):
 # a openhab, o desarmar acá y reportar cada elemento en un topic distinto. Problema acá, facil en openhab.
 def lifespan_report(lifespan):
     tipo=lifespan['type']
-    valor=lifespan['lifespan']
+    valor=str(lifespan['lifespan'])
     mqttpublish(did,"components/"+tipo,valor)
     print("Lifespan: "+json.dumps(lifespan))
     print("tipo: "+tipo)
