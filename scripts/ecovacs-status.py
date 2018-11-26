@@ -75,7 +75,7 @@ vacbot.errorEvents.subscribe(error_report)
 # For the first run, try to get & report all statuses
 vacbot.request_all_statuses
 vacbot.refresh_components
-battery_report(vacbot.battery_status*100)
+battery_report(int(vacbot.battery_status*100)
 #charge_status=vacbot.charge_status
 status_report(vacbot.clean_status)
 
