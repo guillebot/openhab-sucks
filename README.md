@@ -1,6 +1,6 @@
 # openhab-sucks
 
-My attempt at **monitor** and **control** Ecovacs Deebot vacuum cleaners from OpenHAB, via [MQTT](http://mqtt.org/).
+My attempt at **monitor** and **control** Ecovacs Deebot vacuum cleaners from [OpenHAB](https://www.openhab.org/), via [MQTT](http://mqtt.org/).
 
 At the core, the great [sucks library](https://github.com/wpietri/sucks) by [@wpietri](https://github.com/wpietri).
 
@@ -22,21 +22,23 @@ Only continue if you are sure that `sucks` it's running fine. If not please go t
 
 5. If and only if (3) it's ok: Clone this repo and run `ecovacs-mqtt-gateway.py`
 
+Run it with python3.
+
 It should remain running in the background, for that, I recommend [Supervisor](http://supervisord.org/)
 
 There is a provided supervisord [ecovacs.ini](https://github.com/guillebot/openhab-sucks/blob/master/supervisord/ecovacs.ini) example.
 
 # Concept
 
-I'm using sucks library to connect to the Ecovacs system and monitor for status and activity. At startup (kind of) and whenever a status change is detected, it publishes the values to the mqtt broker [Eclipse Mosquitto](https://mosquitto.org/). I also listen for mqtt control messages to send commands to the vacuum cleaners.
+I'm using sucks library to connect to the Ecovacs system and monitor for status and activity. At startup and whenever a status change is detected, it publishes the values to the mqtt broker [Eclipse Mosquitto](https://mosquitto.org/). It also listen for mqtt control messages to send commands to the vacuum cleaners.
 
 I use [MQTT](http://mqtt.org/) for all my IoT/Sensors communications to [OpenHAB](https://www.openhab.org/) and strongly recommend everybody to do so. 
 
-[MQTT](http://mqtt.org/) it's standard, lightewight, easy to deploy, easy to monitor from any device, and gives you the possibility of isolate devices from the home automation controller with a simple standard layer of abstraction. 
+[MQTT](http://mqtt.org/) it's standard, lightewight, easy to deploy, easy to monitor from any device, and gives the possibility of isolate devices from the home automation controller with a simple standard layer of abstraction. 
 
-You can use the provided [ecovacs.items](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.items) and [ecovacs.sitemap](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.sitemap) to show the status on your OpenHAB installation, and control the robot from OpenHAB, or just listen/command to the mqtt topics using your preferred software.
+If you are an OpenHAB user, you can use the provided [ecovacs.items](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.items) and [ecovacs.sitemap](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.sitemap) to show the status of your robots and/or control them.
 
-It already provides some basic control, see bellow.
+If you are not an OpenHAB user, no matter how wrong you are, you can monitor and command via mqtt topics using your preferred software.
 
 # Features
 
