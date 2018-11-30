@@ -86,11 +86,11 @@ I recommmend [MQTT.fx](https://mqttfx.jensd.de/) to monitor mqtt activity and do
 # To do - Next steps
 
 - Move some harcoded config (mqtt base topic, server, port) to some config file. 
-- Error codes management. At least the most usual, like stuck robot. Is there a warning when it runs out of batteries returning?
+- Error handling. Stuck here because sucks library it's giving me errors when I force errors. At least the most usual, like stuck robot. Is there a warning when it runs out of batteries returning?
 - Test for stability on the mqtt connection. Reconnect if necessary.
 - Test for stability in general. Monitor memory usage.
 - (mine) Apply some logic with presence and automate ecovacs run daily.
-- Add control buttons on OpenHAB sitemap.
+- ~~Add control buttons on OpenHAB sitemap.~~ Done!
 
 # Contact
 
