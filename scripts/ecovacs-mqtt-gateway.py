@@ -6,6 +6,8 @@ import paho.mqtt.publish as publish
 import paho.mqtt.client as mqtt
 import json
 
+print "Ecovac Sucks 0.2"
+
 # Reading the config file. In my system /root/.config/sucks.conf
 # this config file is created by running 'sucks login'. Please refer to sucks documentation.
 config = read_config()
@@ -101,7 +103,7 @@ def on_message(client, userdata, message):
     print("message topic=",message.topic)
     print("message qos=",message.qos)
     print("message retain flag=",message.retain)
-    if received_command == "0" # "clean auto"
+    if received_command == "0"  # "clean auto
         vacbot.run(Clean())
     elif received_command == "2":
         vacbot.run(Charge())
