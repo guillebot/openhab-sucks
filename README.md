@@ -36,7 +36,7 @@ I use [MQTT](http://mqtt.org/) for all my IoT/Sensors communications to [OpenHAB
 
 [MQTT](http://mqtt.org/) it's standard, lightewight, easy to deploy, easy to monitor from any device, and gives the possibility of isolate devices from the home automation controller with a simple standard layer of abstraction. 
 
-If you are an OpenHAB user, you can use the provided [ecovacs.items](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.items) and [ecovacs.sitemap](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.sitemap) to show the status of your robots and/or control them.
+If you are an OpenHAB user, you can use the provided [ecovacs.things](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.things), [ecovacs.items](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.items) and [ecovacs.sitemap](https://github.com/guillebot/openhab-sucks/blob/master/openhab/ecovacs.sitemap) to show the status of your robots and/or control them.
 
 If you are not an OpenHAB user, no matter how wrong you are, you can monitor and command via mqtt topics using your preferred software.
 
@@ -91,6 +91,7 @@ I recommmend [MQTT.fx](https://mqttfx.jensd.de/) to monitor mqtt activity and do
 - (mine) Apply some logic with presence and automate ecovacs run daily.
 - Adhere to Homie convention
 - ~~Add control buttons on OpenHAB sitemap.~~ Done!
+- ~~Adapt to new OpenHAB 2.4 MQTT binding~~
 
 # Contact
 
