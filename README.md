@@ -74,7 +74,7 @@ I use and recommend OpenHAB.
 
 ## Control
 
-To control the vacuum cleaner via mqtt you have to publish `auto`, `charge`, `stop` or `playsound` message to the following topic:
+To control the vacuum cleaner via mqtt you have to publish 0 for `auto`, 2 for `charge`, 1 for `stop` or 3 for `playsound` message to the following topic:
 
 `ecovacs/{did}/command`
 
