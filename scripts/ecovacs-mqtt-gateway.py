@@ -101,13 +101,13 @@ def on_message(client, userdata, message):
     print("message topic=",message.topic)
     print("message qos=",message.qos)
     print("message retain flag=",message.retain)
-    if received_command == CLEAN_MODE_AUTO:  # "auto"
+    if received_command == "0" # "clean auto"
         vacbot.run(Clean())
-    elif received_command == "charge":
+    elif received_command == "2":
         vacbot.run(Charge())
-    elif received_command == "playsound":
+    elif received_command == "3":
         vacbot.run(PlaySound())    
-    elif received_command == CLEAN_MODE_STOP:
+    elif received_command == "1":
         vacbot.run(Stop())     
     else:
         print("Unknown command")

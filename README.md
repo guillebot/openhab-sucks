@@ -50,7 +50,7 @@ This gateway, when running, will listen from sucks events and update the followi
 ecovacs/{did}/battery_level
 ecovacs/{did}/battery_status
 ecovacs/{did}/clean_status
-ecovacs/{did}/vacuum
+ecovacs/{did}/vacuum_status
 ecovacs/{did}/fan_speed
 ecovacs/{did}/components/main_brush
 ecovacs/{did}/components/side_brush
