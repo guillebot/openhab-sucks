@@ -1,15 +1,15 @@
 Frame label=Ecovacs {
     Text item=ecovacs_1_battery_level icon="battery" 
-                                        valuecolor=[Ups_Battery_Charge >98="green",>50="orange",<=50="red"]
-    Text item=ecovacs_1_charge_status icon="poweroutlet_au"
-    Text item=ecovacs_1_clean_status
-    Text item=ecovacs_1_vacuum_status
-    Text item=ecovacs_1_fan_speed
-    Text item=ecovacs_1_main_brush
-    Text item=ecovacs_1_side_brush
-    Text item=ecovacs_1_filter
-
-    Switch item=ECOVACS_COMMAND label="Ecovac Vacuum" mappings=[0="Clean", 1="Charge", 2="Play Sound"]
-
+                                        valuecolor=[ecovacs_1_battery_level >98="green",>50="orange",<=50="red"]
+    Text item=ecovacs_1_vacuum_status { 
+        Text item=ecovacs_1_battery_level icon="battery" 
+                                        valuecolor=[ecovacs_1_battery_level >98="green",>50="orange",<=50="red"]
+        Text item=ecovacs_1_charge_status icon="poweroutlet_au"
+        Text item=ecovacs_1_clean_status
+        Text item=ecovacs_1_fan_speed icon="fan"
+        Text item=ecovacs_1_main_brush
+        Text item=ecovacs_1_side_brush
+        Text item=ecovacs_1_filter
+        Switch item=ecovacs_1_ncommand label="Ecovacs N Command" mappings=[0="Clean", 1="Stop", 2="Charge", 3="Play Sound"]
+    }
 }
-
