@@ -58,7 +58,7 @@ def error_report(mierror):
 # Library generated summary status. Smart merge of clean and battery status
 # I think that when returning it should override "stop" values. Will follow on that.
 def vacuum_report():
-    mqttpublish(did,"vacuum",vacbot.vacuum_status)
+    mqttpublish(did,"vacuum_status",vacbot.vacuum_status)
     mqttpublish(did,"clean_status",vacbot.clean_status)
     print("Vacuum status:"+vacbot.vacuum_status)
     print("Clean status:"+vacbot.clean_status)
