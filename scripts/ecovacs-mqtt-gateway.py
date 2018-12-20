@@ -6,7 +6,7 @@ import paho.mqtt.publish as publish
 import paho.mqtt.client as mqtt
 import json
 
-print "Ecovac Sucks 0.2"
+print ("Ecovac Sucks 0.2")
 
 # Reading the config file. In my system /root/.config/sucks.conf
 # this config file is created by running 'sucks login'. Please refer to sucks documentation.
