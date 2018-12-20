@@ -1,15 +1,9 @@
-// Monitor
-Number ecovacs_1_battery_level "Battery Level [%.0f %%]" {mqtt="<[mosquitto:ecovacs/{your device id}/battery_level:state:default]"}
-String ecovacs_1_battery_status "Battery Status [%s]"    {mqtt="<[mosquitto:ecovacs/{your device id}/battery_status:state:default]"}
-String ecovacs_1_clean_status  "Clean Status [%s]"       {mqtt="<[mosquitto:ecovacs/{your device id}/clean_status:state:default]"}
-String ecovacs_1_vacuum_status "Vacuum Status [%s]"      {mqtt="<[mosquitto:ecovacs/{your device id}/vacuum:state:default]"}
-String ecovacs_1_fan_speed     "Fan Speed [%s]"          {mqtt="<[mosquitto:ecovacs/{your device id}/fan_speed:state:default]"}
-Number ecovacs_1_main_brush    "Main Brush [%.0f %%]"    {mqtt="<[mosquitto:ecovacs/{your device id}/components/main_brush:state:default]"}
-Number ecovacs_1_side_brush    "Side Brush [%.0f %%]"    {mqtt="<[mosquitto:ecovacs/{your device id}/components/side_brush:state:default]"}
-Number ecovacs_1_filter        "Filter [%.0f %%]"        {mqtt="<[mosquitto:ecovacs/{your device id}/components/filter:state:default]"}
-
-// Command
-Number ECOVACS_COMMAND "Aspiradora" { mqtt=">[mosquitto:ecovacs/{your device id}/command:command:0:clean],
-                                            >[mosquitto:ecovacs/{your device id}/command:command:1:charge],
-                                            >[mosquitto:ecovacs/{your device id}/command:command:2:playsound]"
-                                     }
+Number ecovacs_1_battery_level  "Battery Level [%.0f %%]" { channel="mqtt:topic:miscosas:ecovacs_1_battery_level"}
+String ecovacs_1_charge_status  "Charge Status [%s]"      { channel="mqtt:topic:miscosas:ecovacs_1_charge_status" }
+String ecovacs_1_clean_status   "Clean Status [%s]"       { channel="mqtt:topic:miscosas:ecovacs_1_clean_status" }
+String ecovacs_1_vacuum_status  "Vacuum Status [%s]"      { channel="mqtt:topic:miscosas:ecovacs_1_vacuum_status" }
+String ecovacs_1_fan_speed      "Fan Speed [%s]"          { channel="mqtt:topic:miscosas:ecovacs_1_fan_speed" }
+Number ecovacs_1_main_brush     "Main Brush [%.0f %%]"    { channel="mqtt:topic:miscosas:ecovacs_1_main_brush" }
+Number ecovacs_1_side_brush     "Side Brush [%.0f %%]"    { channel="mqtt:topic:miscosas:ecovacs_1_side_brush" }
+Number ecovacs_1_filter         "Filter [%.0f %%]"        { channel="mqtt:topic:miscosas:ecovacs_1_filter" }
+Number ecovacs_1_ncommand       "Ecovacs 1 N Command"     { channel="mqtt:topic:miscosas:ecovacs_1_ncommand" }
