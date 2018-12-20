@@ -1,0 +1,21 @@
+Bridge mqtt:broker:mosquittotexto [ host="localhost",
+                                    port="8884",
+                                    secure=false,
+                                    brokername="mosquitto", 
+                                    topicPublish="mysensors1-in",
+                                    topicSuscribe="mysensors1-out",
+                                    startupCheckEnabled=false ]
+    {
+    Thing mqtt:topic:miscosas {
+        Channels:
+            Type number : ecovacs_1_battery_level "Ecovacs 01 Battery Level" [ stateTopic="ecovacs/E0000693817701104736/battery_level" ]
+            Type string : ecovacs_1_charge_status "Ecovacs 01 Charge Status" [ stateTopic="ecovacs/E0000693817701104736/charge_status" ]
+            Type string : ecovacs_1_clean_status  "Ecovacs 01 Clean Status"  [ stateTopic="ecovacs/E0000693817701104736/clean_status" ]
+            Type string : ecovacs_1_vacuum_status "Ecovacs 01 Vacuum Status" [ stateTopic="ecovacs/E0000693817701104736/vacuum_status" ]
+            Type string : ecovacs_1_fan_speed     "Ecovacs 01 Fan Speed"     [ stateTopic="ecovacs/E0000693817701104736/fan_speed" ]
+            Type number : ecovacs_1_main_brush    "Ecovacs 01 Main Brush"    [ stateTopic="ecovacs/E0000693817701104736/components/main_brush" ]
+            Type number : ecovacs_1_side_brush    "Ecovacs 01 Side Brush"    [ stateTopic="ecovacs/E0000693817701104736/components/side_brush" ]
+            Type number : ecovacs_1_filter        "Ecovacs 01 Filter"        [    stateTopic="ecovacs/E0000693817701104736/components/filter" ]
+            Type number : ecovacs_1_ncommand      "Ecovacs 01 Number Command" [ commandTopic="ecovacs/E0000693817701104736/command" ]
+        }
+}
