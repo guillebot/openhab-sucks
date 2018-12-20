@@ -103,7 +103,7 @@ def on_message(client, userdata, message):
     print("message topic=",message.topic)
     print("message qos=",message.qos)
     print("message retain flag=",message.retain)
-    if received_command == "0"  
+    if received_command == "0":  
         vacbot.run(Clean())
     elif received_command == "2":
         vacbot.run(Charge())
